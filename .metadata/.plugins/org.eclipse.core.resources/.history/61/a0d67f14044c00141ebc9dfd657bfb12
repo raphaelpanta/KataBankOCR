@@ -1,0 +1,30 @@
+package raphaelpantaleao.bankocr.tests.endtoend;
+
+import java.awt.HeadlessException;
+import java.lang.reflect.InvocationTargetException;
+
+import org.junit.Test;
+
+public class BankOCREndToEndTest {
+
+	private final ApplicationRunner application = new ApplicationRunner();
+
+	@Test
+	public void userSelectsAScannedFileAndExhibitsItsAccountSuccesfully()
+			throws HeadlessException, InvocationTargetException,
+			InterruptedException {
+		application.openItsUI();
+		application
+				.receivesActionPeformedByAUserUsingAButtonNamed("select file button");
+		application.showsInputTextAreaReceivedATextLike("input text area",
+				"  _  _     _  _  _  _  _ \n" + "| _| _||_||_ |_   ||_||_|\n"
+						+ "||_  _|  | _||_|  ||_| _|\n");
+
+		application.showsAButtonIsEnabledNamed("scanner button");
+		application
+				.receivesActionPeformedByAUserUsingAButtonNamed("scanner button");
+		application.showsInputTextAreaReceivedATextLike("output text area",
+				"123456789");
+	}
+
+}

@@ -1,0 +1,5 @@
+package raphaelpantaleao.katabanckocr.models;
+
+public class Document {
+
+}

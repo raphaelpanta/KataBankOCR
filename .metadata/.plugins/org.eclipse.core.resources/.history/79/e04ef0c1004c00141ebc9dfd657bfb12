@@ -1,0 +1,125 @@
+package raphaelpantaleao.bankocr.tests.endtoend;
+
+import static org.hamcrest.Matchers.equalTo;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+
+import org.hamcrest.FeatureMatcher;
+import org.hamcrest.Matcher;
+
+import com.objogate.exception.Defect;
+import com.objogate.wl.Prober;
+import com.objogate.wl.swing.AWTEventQueueProber;
+import com.objogate.wl.swing.ComponentSelector;
+import com.objogate.wl.swing.driver.JButtonDriver;
+import com.objogate.wl.swing.driver.JFrameDriver;
+import com.objogate.wl.swing.driver.JLabelDriver;
+import com.objogate.wl.swing.driver.JTextComponentDriver;
+import com.objogate.wl.swing.gesture.GesturePerformer;
+
+@SuppressWarnings("unchecked")
+public class BankOCRDriver extends JFrameDriver {
+
+	private static final ComponentSelector<JFrame> topLevelFrame = topLevelFrame(
+			named("Bank OCR"), showingOnScreen());
+
+	private static Prober eventQueueProberWith(final int timeoutMillis) {
+		return new AWTEventQueueProber(timeoutMillis, 100);
+	}
+
+	public BankOCRDriver(final int aTimeoutInMillis) {
+		super(new GesturePerformer(), topLevelFrame,
+				eventQueueProberWith(aTimeoutInMillis));
+	}
+
+	public void hasTitle(String titleName) {
+		this.hasTitle(equalTo(titleName));
+	}
+
+	public void hasALabelWith(String labelName, String text) {
+		new JLabelDriver(this, named(labelName)).hasText(equalTo(text));
+	}
+
+	public void hasAButtonWith(String name, String text) {
+		new JButtonDriver(this, JButton.class, named(name), isEnabled(true))
+				.hasText(equalTo(text));
+	}
+
+	public void hasAButtonWith(String name) {
+		new JButtonDriver(this, JButton.class, named(name), isEnabled(true));
+	}
+
+	public void hasADisabledButtonWith(String name, String text) {
+		new JButtonDriver(this, JButton.class, named(name), isDisabled())
+				.hasText(equalTo(text));
+	}
+
+	public void hasATextAreaWith(String textAreaName, String text, int rows,
+			int columns) {
+		new JTextComponentDriver<JTextArea>(this, JTextArea.class,
+				named(textAreaName), numberOfRowsIs(rows),
+				numberOfColumnsIs(columns), isReadOnly())
+				.hasText(equalTo(text));
+	}
+
+	private Matcher<? super JTextArea> numberOfColumnsIs(int columns) {
+		String expectedText = "JTextArea with number of columns";
+		String actualValueText = "number of columns";
+		return createJTextAreaMatcher(columns, "getColumns", expectedText,
+				actualValueText);
+	}
+
+	private Matcher<? super JTextArea> isReadOnly() {
+		return createJTextAreaMatcher(false, "isEditable",
+				"JTextArea editable property", "editable property");
+
+	}
+
+	private Matcher<? super JButton> isEnabled(boolean enabled) {
+		return new FeatureMatcher<JButton, Boolean>(equalTo(enabled),
+				"Jbutton enable property", "enable property") {
+			protected Boolean featureValueOf(JButton jbutton) {
+				return jbutton.isEnabled();
+			};
+		};
+	}
+
+	private Matcher<? super JTextArea> numberOfRowsIs(int rows) {
+		String expectedText = "JTextArea with number of rows";
+		String actualValueText = "number of rows";
+		return createJTextAreaMatcher(rows, "getRows", expectedText,
+				actualValueText);
+	}
+
+	private <T> Matcher<? super JTextArea> createJTextAreaMatcher(T object,
+			String methodName, String expectedText, String actualValueText) {
+
+		return new FeatureMatcher<JTextArea, T>(equalTo(object), expectedText,
+				actualValueText) {
+
+			@Override
+			protected T featureValueOf(JTextArea textArea) {
+				Method method = null;
+				try {
+					method = JTextArea.class.getMethod(methodName);
+					return (T) method.invoke(textArea);
+				} catch (IllegalAccessException | IllegalArgumentException
+						| InvocationTargetException | NoSuchMethodException
+						| SecurityException e) {
+					throw new Defect("Could not invoke method "
+							+ method.getName() + ".", e);
+				}
+
+			}
+		};
+	}
+
+	public void performsAActionWith(String buttonName) {
+		new JButtonDriver(this, JButton.class, named(buttonName)).click();
+	}
+}
