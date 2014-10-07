@@ -39,4 +39,8 @@
 <fullyQualifiedTypeName name="raphaelpantaleao.katabanckocr.builders.ScrollableJTextAreaBuilder"/>
 <fullyQualifiedTypeName name="javax.swing.JTextArea"/>
 <fullyQualifiedTypeName name="raphaelpantaleao.katabanckocr.Constants"/>
+<fullyQualifiedTypeName name="org.junit.After"/>
+<fullyQualifiedTypeName name="raphaelpantaleao.bankocr.tests.endtoend.BankOCRDriver"/>
+<fullyQualifiedTypeName name="raphaelpantaleao.bankocr.tests.endtoend.TestConstants"/>
+<fullyQualifiedTypeName name="org.jmock.Mockery"/>
 </qualifiedTypeNameHistroy>

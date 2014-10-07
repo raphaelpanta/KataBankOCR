@@ -50,3 +50,9 @@
 1412648694496	Rename local variable 'streammed'
 1412648721785	Rename local variable 'streammedDoc'
 1412682917315	Convert local variable 'scannedFile' to field
+1412686924105	Move compilation units
+1412686980328	Delete element
+1412687005491	Move compilation unit
+1412695462873	Rename method 'stringSholdBeWellformed'
+1412695964153	Rename local variable 'pattern'
+1412695972991	Rename local variable 'only27pipesAndUnderscores'

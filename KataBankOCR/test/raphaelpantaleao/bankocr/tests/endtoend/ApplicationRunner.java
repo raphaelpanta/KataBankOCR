@@ -1,16 +1,16 @@
 package raphaelpantaleao.bankocr.tests.endtoend;
 
-import static raphaelpantaleao.katabanckocr.Constants.INPUT_LABEL_NAME;
-import static raphaelpantaleao.katabanckocr.Constants.INPUT_LABEL_TEXT;
-import static raphaelpantaleao.katabanckocr.Constants.INPUT_TEXT_AREA_NAME;
-import static raphaelpantaleao.katabanckocr.Constants.OUTPUT_LABEL_NAME;
-import static raphaelpantaleao.katabanckocr.Constants.OUTPUT_LABEL_TEXT;
-import static raphaelpantaleao.katabanckocr.Constants.OUTPUT_TEXT_AREA_NAME;
-import static raphaelpantaleao.katabanckocr.Constants.SCANNER_BUTTON_NAME;
-import static raphaelpantaleao.katabanckocr.Constants.SCANNER_BUTTON_TEXT;
-import static raphaelpantaleao.katabanckocr.Constants.SELECT_FILE_BUTTON_NAME;
-import static raphaelpantaleao.katabanckocr.Constants.SELECT_FILE_BUTTON_TEXT;
-import static raphaelpantaleao.katabanckocr.Constants.TITLE_TEXT;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.INPUT_LABEL_NAME;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.INPUT_LABEL_TEXT;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.INPUT_TEXT_AREA_NAME;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.OUTPUT_LABEL_NAME;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.OUTPUT_LABEL_TEXT;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.OUTPUT_TEXT_AREA_NAME;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.SCANNER_BUTTON_NAME;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.SCANNER_BUTTON_TEXT;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.SELECT_FILE_BUTTON_NAME;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.SELECT_FILE_BUTTON_TEXT;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.TITLE_TEXT;
 
 import java.awt.HeadlessException;
 import java.lang.reflect.InvocationTargetException;

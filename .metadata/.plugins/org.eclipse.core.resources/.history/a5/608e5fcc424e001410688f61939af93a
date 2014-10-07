@@ -1,0 +1,43 @@
+package raphaelpantaleao.katabanckocr.models;
+
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Scanner;
+
+public class DocumentProcessor {
+	private StringBuilder scannedBuilder;
+
+	public DocumentProcessor() {
+		scannedBuilder = new StringBuilder();
+	}
+
+	public void process(InputStream streamedDoc) {
+		Scanner scanner = new Scanner(streamedDoc);
+		while (scanner.hasNextLine()) {
+			this.scannedBuilder.append(scanner.nextLine() + "\n");
+		}
+		scanner.close();
+	}
+
+	private String zero = " _ | ||_|   " ;
+
+	public String entries() {
+		StringBuilder stringBuilder = new StringBuilder();
+		BufferedInputStream bufferedInputStream = new BufferedInputStream(
+				new ByteArrayInputStream(stringBuilder.toString().getBytes()));
+		Scanner scanner = new Scanner(bufferedInputStream);
+		String number = "";
+		for (int i = 0; i < 4; scanner.hasNextLine()) {
+			for (int j = 0; j < 4; j++) 
+			boolean isZero = number.charAt(i) == zero.charAt(i)|| number.charAt(i+1) == zero.charAt(i+1)|| number.charAt(i+2) == zero.charAt(i+3);
+		}
+		
+		
+		return null;
+	}
+
+	public String unprocessedEntries() {
+		return scannedBuilder.toString();
+	}
+}

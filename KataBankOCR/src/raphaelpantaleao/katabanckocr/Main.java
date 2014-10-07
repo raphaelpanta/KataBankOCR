@@ -1,9 +1,9 @@
 package raphaelpantaleao.katabanckocr;
 
 import static javax.swing.SwingUtilities.invokeAndWait;
-import static raphaelpantaleao.katabanckocr.Constants.FILE_CHOOSER_NAME;
-import static raphaelpantaleao.katabanckocr.Constants.TITLE_NAME;
-import static raphaelpantaleao.katabanckocr.Constants.TITLE_TEXT;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.FILE_CHOOSER_NAME;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.TITLE_NAME;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.TITLE_TEXT;
 import static raphaelpantaleao.katabanckocr.listeners.NonBlokingActionListener.invokeLater;
 
 import java.awt.HeadlessException;
@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import raphaelpantaleao.katabanckocr.listeners.ScanFileListener;
 import raphaelpantaleao.katabanckocr.listeners.SelectFileListener;
 import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
+import raphaelpantaleao.katabanckocr.providers.FileChooserStreamProvider;
 import raphaelpantaleao.katabankocr.ui.UIFrame;
 
 public class Main {

@@ -1,0 +1,36 @@
+package raphaelpantaleao.bankocr.tests.unit;
+
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+
+import java.io.ByteArrayInputStream;
+import java.io.StringReader;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.hamcrest.Matchers;
+import org.jmock.integration.junit4.JUnit4Mockery;
+import org.junit.Assert;
+import org.junit.Rule;
+import org.junit.Test;
+
+import raphaelpantaleao.bankocr.tests.endtoend.TestConstants;
+import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
+
+public class DocumentProcessorTest {
+
+	// @Rule
+	// public JUnit4Mockery context = new JUnit4Mockery();
+	private final DocumentProcessor docProcessor = new DocumentProcessor();
+	private String only27pipesAndUnderscore = "\\[_||]{27}";
+
+	@Test
+	public void digitsConvertionSuccessfully() {
+		ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(
+				TestConstants.ZEROS.getBytes());
+		docProcessor.process(byteArrayInputStream);
+		assertThat(docProcessor.entries(), is(equalTo("000000000\n")));
+	}
+}

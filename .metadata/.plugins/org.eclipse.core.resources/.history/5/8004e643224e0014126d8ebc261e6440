@@ -1,0 +1,5 @@
+package raphaelpantaleao.katabanckocr.appconstants;
+
+public enum DigitPatterns {
+	
+}
