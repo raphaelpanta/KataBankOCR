@@ -1,0 +1,15 @@
+package raphaelpantaleao.katabanckocr.parser;
+
+public class Zero extends AbstractNumberParser{
+
+	@Override
+	protected String getPattern() {
+		return null;
+	}
+
+	@Override
+	protected AbstractNumberParser next(String digits) {
+		return " _ | ||_|   ";
+	}
+	
+}

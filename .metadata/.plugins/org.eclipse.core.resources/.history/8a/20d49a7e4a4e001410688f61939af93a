@@ -1,0 +1,14 @@
+package raphaelpantaleao.katabanckocr.parser;
+
+public abstract class AbstractNumberParser implements NumberParser {
+
+	protected abstract String getPattern();
+
+	protected abstract AbstractNumberParser next(String digits, String number, int counter);
+
+	public String parse(String digits) {
+		return parse(digits, "");
+	}
+
+	
+}

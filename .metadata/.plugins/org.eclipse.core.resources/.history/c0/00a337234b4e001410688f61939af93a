@@ -1,0 +1,19 @@
+package raphaelpantaleao.katabanckocr.parser;
+
+public class Zero extends AbstractNumberParser {
+
+	public String parse(String digits) {
+		return parse(digits, 0);
+	}
+
+	private String parse(String digits, int pos){
+		boolean isZero = false;
+		for (int j = 0; j < 27 * 4; j = j + 27)
+			isZero = digits.charAt(pos + j) == digits.charAt(pos + j)
+					&& digits.charAt(pos + j + 1) == digits.charAt(pos + j + 1)
+					&& digits.charAt(pos + j + 2) == digits.charAt(pos + j + 2);
+		if (isZero) {
+			number += "0";
+		}
+	}
+}

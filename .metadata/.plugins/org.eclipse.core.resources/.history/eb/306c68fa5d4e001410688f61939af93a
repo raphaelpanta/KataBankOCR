@@ -1,0 +1,42 @@
+package raphaelpantaleao.bankocr.tests.unit;
+
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static raphaelpantaleao.bankocr.tests.endtoend.TestConstants.NUMBER_IN_DIGITS;
+import static raphaelpantaleao.bankocr.tests.endtoend.TestConstants.ZEROS;
+
+import java.io.ByteArrayInputStream;
+
+import org.junit.Test;
+
+import raphaelpantaleao.bankocr.tests.endtoend.TestConstants;
+import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
+
+public class DocumentProcessorTest {
+
+	// @Rule
+	// public JUnit4Mockery context = new JUnit4Mockery();
+	private final DocumentProcessor docProcessor = new DocumentProcessor();
+
+	@Test
+	public void digitsConvertionSuccessfully() {
+		ByteArrayInputStream byteArrayInputStream = stream();
+		docProcessor.process(byteArrayInputStream);
+
+		for (String account : TestConstants.ACCOUNTS_EXPECTED){
+			accounts += account
+		}
+			assertThat(docProcessor.entries(), is(equalTo(account)));
+	}
+
+	private ByteArrayInputStream stream() {
+		StringBuilder builder = new StringBuilder();
+		for (String string : NUMBER_IN_DIGITS) {
+			builder.append(string);
+		}
+		ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(
+				builder.toString().getBytes());
+		return byteArrayInputStream;
+	}
+}

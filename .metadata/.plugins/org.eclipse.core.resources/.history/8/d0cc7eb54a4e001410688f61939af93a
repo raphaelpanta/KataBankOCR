@@ -1,0 +1,11 @@
+package raphaelpantaleao.katabanckocr.parser;
+
+public class Zero extends AbstractNumberParser{
+
+	
+	public String parse(String digits){
+		return null;
+	}
+	
+	private String parse(String digit, int pos);
+}

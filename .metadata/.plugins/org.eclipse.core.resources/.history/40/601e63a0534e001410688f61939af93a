@@ -1,0 +1,10 @@
+package raphaelpantaleao.katabanckocr.parser;
+
+public class Zero extends AbstractNumberParser {
+
+	String zero = " _ " + "| |" + "|_|" + "   ";
+
+	public String parse(String digits) {
+		return parse(digits, 0);
+	}
+}

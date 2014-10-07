@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun raphaelpantaleao.bankocr.tests.unit.DocumentProcessorTest.digitsConvertionSuccessfully" project="KataBankOCR" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testcase name="digitsConvertionSuccessfully" classname="raphaelpantaleao.bankocr.tests.unit.DocumentProcessorTest" time="0.055"/>
+</testrun>
