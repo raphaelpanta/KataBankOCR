@@ -1,0 +1,52 @@
+package raphaelpantaleao.katabanckocr;
+
+import static javax.swing.SwingUtilities.invokeAndWait;
+import static javax.swing.SwingUtilities.invokeLater;
+
+import java.awt.HeadlessException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.lang.reflect.InvocationTargetException;
+
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+
+import raphaelpantaleao.katabanckocr.models.Document;
+import raphaelpantaleao.katabankocr.ui.UIFrame;
+
+public class Main {
+
+	public static void main(String[] args) throws HeadlessException,
+			InvocationTargetException, InterruptedException {
+		invokeAndWait(() -> {
+			Document doc = null;
+			UIFrame topLevelFrame = new UIFrame("Bank OCR", "BankOCR App");
+			topLevelFrame.addScanFileListener((event) -> {
+				invokeLater(() -> {
+					topLevelFrame.appendOutput(doc.entries());
+				});
+			});
+
+			topLevelFrame
+					.addSelectFileListener((event) -> {
+						invokeLater(() -> {
+							int returnOption = jFileChooser
+									.showOpenDialog(this);
+							if (returnOption == JFileChooser.APPROVE_OPTION) {
+								File file = jFileChooser.getSelectedFile();
+								try {
+									doc = Document.process(new FileInputStream(
+											file));
+								} catch (Exception e) {
+									throw new RuntimeException(
+											"Could not open file", e);
+								}
+								inputTextArea.append(doc.unprocessedEntries());
+								scannerButton.setEnabled(true);
+							}
+						});
+					});
+			topLevelFrame.setVisible(true);
+		});
+	}
+}

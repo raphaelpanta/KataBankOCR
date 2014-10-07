@@ -1,0 +1,39 @@
+package raphaelpantaleao.katabanckocr.listeners;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+
+import javax.swing.JFileChooser;
+
+import raphaelpantaleao.katabanckocr.models.Document;
+import raphaelpantaleao.katabankocr.ui.UIFrame;
+
+public class SelectFileListener implements ActionListener {
+
+	private UIFrame frame;
+	private JFileChooser chooser;
+	private Document doc;
+
+	public SelectFileListener(UIFrame frame, JFileChooser chooser, Document doc) {
+		this.frame = frame;
+		this.chooser = chooser;
+		this.doc = doc;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		int returnOption = jFileChooser.showOpenDialog(frame);
+		if (returnOption == JFileChooser.APPROVE_OPTION) {
+			File file = jFileChooser.getSelectedFile();
+			try {
+				doc = Document.process(new FileInputStream(file));
+			} catch (Exception e) {
+				throw new RuntimeException("Could not open file", e);
+			}
+			topLevelFrame.appendInput(doc.unprocessedEntries());
+
+		}
+	}
+}

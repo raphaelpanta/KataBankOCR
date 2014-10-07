@@ -1,5 +1,17 @@
 package raphaelpantaleao.bankocr.tests.endtoend;
 
+import static raphaelpantaleao.katabanckocr.Constants.INPUT_LABEL_NAME;
+import static raphaelpantaleao.katabanckocr.Constants.INPUT_LABEL_TEXT;
+import static raphaelpantaleao.katabanckocr.Constants.INPUT_TEXT_AREA_NAME;
+import static raphaelpantaleao.katabanckocr.Constants.OUTPUT_LABEL_NAME;
+import static raphaelpantaleao.katabanckocr.Constants.OUTPUT_LABEL_TEXT;
+import static raphaelpantaleao.katabanckocr.Constants.OUTPUT_TEXT_AREA_NAME;
+import static raphaelpantaleao.katabanckocr.Constants.SCANNER_BUTTON_NAME;
+import static raphaelpantaleao.katabanckocr.Constants.SCANNER_BUTTON_TEXT;
+import static raphaelpantaleao.katabanckocr.Constants.SELECT_FILE_BUTTON_NAME;
+import static raphaelpantaleao.katabanckocr.Constants.SELECT_FILE_BUTTON_TEXT;
+import static raphaelpantaleao.katabanckocr.Constants.TITLE_TEXT;
+
 import java.awt.HeadlessException;
 import java.lang.reflect.InvocationTargetException;
 
@@ -17,15 +29,13 @@ public class ApplicationRunner {
 
 	private void initialUIStateAssertions() {
 		driver = new BankOCRDriver(1000);
-		driver.hasTitle("BankOCR App");
-		driver.hasALabelWith(itsNameIs("input"), itsTextIs("Input:"));
-		driver.hasAButtonWith(itsNameIs("select file button"),
-				itsTextIs("Select File..."));
-		driver.hasATextAreaWith("input text area", "", 3, 27);
-		driver.hasALabelWith(itsNameIs("output"), itsTextIs("Output:"));
-		driver.hasADisabledButtonWith(itsNameIs("scanner button"),
-				itsTextIs("Scan File..."));
-		driver.hasATextAreaWith("output text area", "", 1, 9);
+		driver.hasTitle(TITLE_TEXT);
+		driver.hasALabelWith(INPUT_LABEL_NAME, INPUT_LABEL_TEXT);
+		driver.hasAButtonWith(SELECT_FILE_BUTTON_NAME, SELECT_FILE_BUTTON_TEXT);
+		driver.hasATextAreaWith(INPUT_TEXT_AREA_NAME, "", 3, 27);
+		driver.hasALabelWith(OUTPUT_LABEL_NAME, OUTPUT_LABEL_TEXT);
+		driver.hasADisabledButtonWith(SCANNER_BUTTON_NAME, SCANNER_BUTTON_TEXT);
+		driver.hasATextAreaWith(OUTPUT_TEXT_AREA_NAME, "", 1, 9);
 	}
 
 	private void startApplication() throws InvocationTargetException,
@@ -33,28 +43,20 @@ public class ApplicationRunner {
 		Main.main(null);
 	}
 
-	private String itsNameIs(String aName) {
-		return aName;
-	}
-
-	private String itsTextIs(String aText) {
-		return aText;
-	}
-
 	public void receivesActionPeformedByAUserUsingAButtonNamed(String buttonName) {
 		driver.performsAActionWith(buttonName);
 	}
 
 	public void showsInputTextAreaReceivedATextLike(String text) {
-		driver.hasATextAreaWith("input text area", text, 3, 27);
+		driver.hasATextAreaWith(INPUT_TEXT_AREA_NAME, text, 3, 27);
 	}
 
 	public void showsOutputTextAreaReceivedATextLike(String text) {
-		driver.hasATextAreaWith("output text area", text, 1, 9);
+		driver.hasATextAreaWith(OUTPUT_TEXT_AREA_NAME, text, 1, 9);
 	}
 
 	public void showsAButtonIsEnabledNamed(String string) {
-		driver.hasAButtonWith(itsNameIs(string));
+		driver.hasAButtonWith(string);
 	}
 
 	public void opensAFileDialogForAFileWith(String aString) {

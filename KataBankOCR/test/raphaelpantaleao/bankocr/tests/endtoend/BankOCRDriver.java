@@ -1,16 +1,16 @@
 package raphaelpantaleao.bankocr.tests.endtoend;
 
 import static org.hamcrest.Matchers.equalTo;
+import static raphaelpantaleao.katabanckocr.Constants.FILE_CHOOSER_NAME;
+import static raphaelpantaleao.katabanckocr.Constants.TITLE_NAME;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
@@ -32,7 +32,7 @@ import com.objogate.wl.swing.gesture.GesturePerformer;
 public class BankOCRDriver extends JFrameDriver {
 
 	private static final ComponentSelector<JFrame> topLevelFrame = topLevelFrame(
-			named("Bank OCR"), showingOnScreen());
+			named(TITLE_NAME), showingOnScreen());
 
 	private static Prober eventQueueProberWith(final int timeoutMillis) {
 		return new AWTEventQueueProber(timeoutMillis, 100);
@@ -76,14 +76,13 @@ public class BankOCRDriver extends JFrameDriver {
 	public void opensAFileDialogForAFileWith(String aString) {
 		File scannedFile = prepareTmpFileFor(aString);
 		JFileChooserDriver jFileChooserDriver = new JFileChooserDriver(this,
-				named("file chooser"));
+				named(FILE_CHOOSER_NAME));
 		try {
 			jFileChooserDriver.enterManually(scannedFile.getCanonicalPath());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		jFileChooserDriver.approve();
-
 	}
 
 	private File prepareTmpFileFor(String aString) {

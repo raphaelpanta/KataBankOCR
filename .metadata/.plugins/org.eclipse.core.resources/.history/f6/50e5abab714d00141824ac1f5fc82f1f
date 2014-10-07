@@ -1,0 +1,43 @@
+package raphaelpantaleao.katabanckocr;
+
+import static javax.swing.SwingUtilities.invokeAndWait;
+import static raphaelpantaleao.katabanckocr.listeners.NonBlokingActionListener.invokeLater;
+
+import java.awt.HeadlessException;
+import java.lang.reflect.InvocationTargetException;
+
+import javax.swing.JFileChooser;
+
+import raphaelpantaleao.katabanckocr.listeners.ScanFileListener;
+import raphaelpantaleao.katabanckocr.listeners.SelectFileListener;
+import raphaelpantaleao.katabanckocr.models.Document;
+import raphaelpantaleao.katabankocr.ui.UIFrame;
+
+public class Main {
+	public static void main(String[] args) throws HeadlessException,
+			InvocationTargetException, InterruptedException {
+		invokeAndWait(() -> {
+			final JFileChooser jFileChooser = createFileChooser();
+			UIFrame topLevelFrame = new UIFrame("Bank OCR", "BankOCR App");
+			Document doc = null;
+			topLevelFrame.addScanFileListener(invokeLater(new ScanFileListener(
+					doc, topLevelFrame)));
+
+			topLevelFrame
+					.addSelectFileListener(invokeLater(new SelectFileListener(
+							topLevelFrame, jFileChooser, doc)));
+			topLevelFrame.setVisible(true);
+		});
+	}
+
+	private static JFileChooser createFileChooser() {
+		final JFileChooser jFileChooser = new JFileChooser() {
+			private static final long serialVersionUID = 1L;
+
+			{
+				setName("file chooser");
+			}
+		};
+		return jFileChooser;
+	}
+}

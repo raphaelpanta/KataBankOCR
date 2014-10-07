@@ -1,0 +1,107 @@
+package raphaelpantaleao.katabankocr.ui;
+
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+public class UIFrame extends JFrame {
+
+	private ActionListener selectFileListener;
+	private ActionListener scanFileListener;
+	final JTextArea outputTextArea;
+	final JTextArea inputTextArea;
+	final JButton scannerButton;
+
+	public UIFrame(String name, String title) {
+		configFrame(name, title);
+
+		add(newLabel("input", "Input:"));
+		inputTextArea = createJtextArea("input text area", 3, 27);
+		outputTextArea = createJtextArea("output text area", 1, 9);
+
+		scannerButton = createButton("scanner button", "Scan File...",
+				scanFileListener);
+
+		add(new JButton("Select File...") {
+			{
+				setName("select file button");
+				addActionListener(selectFileListener);
+			}
+		});
+
+		add(new JScrollPane(inputTextArea));
+		add(newLabel("output", "Output:"));
+		add(scannerButton);
+		add(new JScrollPane(outputTextArea));
+
+		pack();
+	}
+
+	private JButton createButton(String name, String text,
+			ActionListener listener) {
+		return new JButton(text) {
+			private static final long serialVersionUID = -96216698916461427L;
+
+			{
+				setName(name);
+				setEnabled(false);
+				addActionListener(listener);
+			}
+		};
+	}
+
+	private void configFrame(String name, String title) {
+		setName(name);
+		setTitle(title);
+		setLayout(new FlowLayout());
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setPreferredSize(new Dimension(350, 300));
+	}
+
+	private JTextArea createJtextArea(String name, int rows, int columns) {
+		return new JTextArea("") {
+			private static final long serialVersionUID = -1872931666294062403L;
+
+			{
+				setName(name);
+				setRows(rows);
+				setColumns(columns);
+				setEditable(false);
+			}
+		};
+	}
+
+	private JLabel newLabel(String name, String text) {
+		return new JLabel(text) {
+			private static final long serialVersionUID = -3111054355912205221L;
+
+			{
+				setName(name);
+			}
+		};
+	};
+
+	public void addSelectFileListener(ActionListener listener) {
+		this.selectFileListener = listener;
+	}
+
+	public void addScanFileListener(ActionListener listener) {
+		this.scanFileListener = listener;
+	}
+
+	public void appendOutput(String string) {
+		outputTextArea.append(string);
+	}
+
+	public void appendInput(String string) {
+		inputTextArea.append(string);
+		scannerButton.setEnabled(true);
+	}
+
+}

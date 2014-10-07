@@ -1,0 +1,8 @@
+package raphaelpantaleao.katabanckocr.interfaces;
+
+import java.io.InputStream;
+
+public interface StreamProvider {
+
+	InputStream getStream();
+}

@@ -1,0 +1,17 @@
+package raphaelpantaleao.katabanckocr.builders;
+
+import javax.swing.JComponent;
+
+public abstract class AbstractComponentBuilder<T extends JComponent> {
+	T component;
+	
+	public T build() {
+		return (T) component;
+	}
+
+	public AbstractComponentBuilder<T> named(String withAName) {
+			component.setName(withAName);
+			return this;
+		}
+	
+}

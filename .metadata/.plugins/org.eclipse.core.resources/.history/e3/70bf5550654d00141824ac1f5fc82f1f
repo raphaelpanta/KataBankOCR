@@ -1,0 +1,21 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+
+import raphaelpantaleao.katabanckocr.models.Document;
+
+
+public class ScanFileListener implements ActionListener {
+	
+	private doc;
+	public ScanFileListener(Document doc, JFrame frame) {
+	
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+
+	}
+
+}

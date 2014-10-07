@@ -1,0 +1,68 @@
+package raphaelpantaleao.bankocr.tests.endtoend;
+
+import static raphaelpantaleao.katabanckocr.Constants.INPUT_LABEL_NAME;
+import static raphaelpantaleao.katabanckocr.Constants.INPUT_LABEL_TEXT;
+import static raphaelpantaleao.katabanckocr.Constants.TITLE_TEXT;
+
+import java.awt.HeadlessException;
+import java.lang.reflect.InvocationTargetException;
+
+import raphaelpantaleao.katabanckocr.Constants;
+import raphaelpantaleao.katabanckocr.Main;
+
+public class ApplicationRunner {
+
+	private BankOCRDriver driver;
+
+	public void openItsUI() throws HeadlessException,
+			InvocationTargetException, InterruptedException {
+		startApplication();
+		initialUIStateAssertions();
+	}
+
+	private void initialUIStateAssertions() {
+		driver = new BankOCRDriver(1000);
+		driver.hasTitle(TITLE_TEXT);
+		driver.hasALabelWith(itsNameIs(INPUT_LABEL_NAME), itsTextIs(INPUT_LABEL_TEXT));
+		driver.hasAButtonWith(itsNameIs(Constants.SELECT_FILE_BUTTON_NAME),
+				itsTextIs("Select File..."));
+		driver.hasATextAreaWith("input text area", "", 3, 27);
+		driver.hasALabelWith(itsNameIs("output"), itsTextIs("Output:"));
+		driver.hasADisabledButtonWith(itsNameIs("scanner button"),
+				itsTextIs("Scan File..."));
+		driver.hasATextAreaWith("output text area", "", 1, 9);
+	}
+
+	private void startApplication() throws InvocationTargetException,
+			InterruptedException {
+		Main.main(null);
+	}
+
+	private String itsNameIs(String aName) {
+		return aName;
+	}
+
+	private String itsTextIs(String aText) {
+		return aText;
+	}
+
+	public void receivesActionPeformedByAUserUsingAButtonNamed(String buttonName) {
+		driver.performsAActionWith(buttonName);
+	}
+
+	public void showsInputTextAreaReceivedATextLike(String text) {
+		driver.hasATextAreaWith("input text area", text, 3, 27);
+	}
+
+	public void showsOutputTextAreaReceivedATextLike(String text) {
+		driver.hasATextAreaWith("output text area", text, 1, 9);
+	}
+
+	public void showsAButtonIsEnabledNamed(String string) {
+		driver.hasAButtonWith(itsNameIs(string));
+	}
+
+	public void opensAFileDialogForAFileWith(String aString) {
+		driver.opensAFileDialogForAFileWith(aString);
+	}
+}

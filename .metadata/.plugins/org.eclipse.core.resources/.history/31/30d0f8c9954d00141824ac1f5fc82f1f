@@ -1,0 +1,26 @@
+package raphaelpantaleao.katabanckocr.builders;
+
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+public class ScrollableJTextAreaBuilder {
+	private JTextArea textArea;
+
+	private ScrollableJTextAreaBuilder() {
+		textArea = new JTextArea();
+	}
+
+	public ScrollableJTextAreaBuilder newScrollableJTextAreaBuilder() {
+		ScrollableJTextAreaBuilder builder = new ScrollableJTextAreaBuilder();
+		return this;
+	}
+
+	public JScrollPane build() {
+		return new JScrollPane(textArea);
+	}
+	
+	public ScrollableJTextAreaBuilder named(String withAName){
+		textArea.setName(withAName);
+		return this;
+	}
+}

@@ -1,0 +1,93 @@
+package raphaelpantaleao.katabankocr.ui;
+
+import static raphaelpantaleao.katabanckocr.builders.JLabelBuilder.newJLabel;
+
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+import raphaelpantaleao.katabanckocr.builders.JButtonBuilder;
+
+public class UIFrame extends JFrame {
+
+	private static final long serialVersionUID = 4752440571780079564L;
+	private final JTextArea outputTextArea;
+	private final JTextArea inputTextArea;
+	private final JButton scannerButton = newButton("scanner button",
+			"Scan File...", false);
+	
+	private final JButton scannerButton = JButtonBuilder.new
+	private final JButton selectFileButton = newButton("select file button",
+			"Select File...", true);
+
+	public UIFrame(String name, String title) {
+		configFrame(name, title);
+
+		inputTextArea = createJtextArea("input text area", 3, 27);
+		outputTextArea = createJtextArea("output text area", 1, 9);
+
+		add(newJLabel().named("input").withText("Input:").build());
+		add(selectFileButton);
+		add(new JScrollPane(inputTextArea));
+		add(newJLabel().named("output").withText("Output").build());
+		add(scannerButton);
+		add(new JScrollPane(outputTextArea));
+
+		pack();
+	}
+
+	private JButton newButton(String name, String text, boolean enabled) {
+		return new JButton(text) {
+			private static final long serialVersionUID = -96216698916461427L;
+
+			{
+				setName(name);
+				setEnabled(enabled);
+			}
+		};
+	}
+
+	private void configFrame(String name, String title) {
+		setName(name);
+		setTitle(title);
+		setLayout(new FlowLayout());
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setPreferredSize(new Dimension(350, 300));
+	}
+
+	private JTextArea createJtextArea(String name, int rows, int columns) {
+		return new JTextArea("") {
+			private static final long serialVersionUID = -1872931666294062403L;
+
+			{
+				setName(name);
+				setRows(rows);
+				setColumns(columns);
+				setEditable(false);
+			}
+		};
+	}
+
+	public void addSelectFileListener(ActionListener listener) {
+		selectFileButton.addActionListener(listener);
+	}
+
+	public void addScanFileListener(ActionListener listener) {
+		scannerButton.addActionListener(listener);
+	}
+
+	public void appendOutput(String string) {
+		outputTextArea.append(string);
+	}
+
+	public void appendInput(String string) {
+		inputTextArea.append(string);
+		scannerButton.setEnabled(true);
+	}
+
+}

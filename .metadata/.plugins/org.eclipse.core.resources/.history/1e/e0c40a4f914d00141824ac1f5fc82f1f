@@ -1,0 +1,16 @@
+package raphaelpantaleao.katabanckocr.builders;
+
+import javax.swing.JLabel;
+
+public class JLabelBuilder {
+
+	private JLabel label;
+	private JLabelBuilder(){
+		
+	}
+	
+	public static JLabelBuilder newJLabel(){
+		
+		return this;
+	}
+}

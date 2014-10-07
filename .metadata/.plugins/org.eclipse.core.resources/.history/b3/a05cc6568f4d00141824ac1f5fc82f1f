@@ -1,0 +1,9 @@
+package raphaelpantaleao.katabanckocr.interfaces;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
+public interface StreamProvider {
+
+	InputStream getStream() throws FileNotFoundException;
+}

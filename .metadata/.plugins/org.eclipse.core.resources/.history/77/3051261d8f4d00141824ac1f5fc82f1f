@@ -1,0 +1,15 @@
+package raphaelpantaleao.katabanckocr;
+
+import java.io.InputStream;
+
+import raphaelpantaleao.katabanckocr.interfaces.StreamProvider;
+
+public class FileChooserStreamProvider implements StreamProvider{
+
+	@Override
+	public InputStream getStream() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

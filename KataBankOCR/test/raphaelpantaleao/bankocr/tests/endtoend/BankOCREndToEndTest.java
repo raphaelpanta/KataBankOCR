@@ -1,5 +1,8 @@
 package raphaelpantaleao.bankocr.tests.endtoend;
 
+import static raphaelpantaleao.bankocr.tests.endtoend.TestConstants.ACCOUNT_FOUND_123456789;
+import static raphaelpantaleao.bankocr.tests.endtoend.TestConstants.SCANNED_TEXT_123456789;
+
 import java.awt.HeadlessException;
 import java.lang.reflect.InvocationTargetException;
 
@@ -7,9 +10,6 @@ import org.junit.Test;
 
 public class BankOCREndToEndTest {
 
-	private static final String ACCOUNT_FOUND_123456789 = "123456789\n";
-	private static final String SCANNED_TEXT_123456789 = "  _  _     _  _  _  _  _ \n"
-			+ "| _| _||_||_ |_   ||_||_|\n" + "||_  _|  | _||_|  ||_| _|\n";
 	private final ApplicationRunner application = new ApplicationRunner();
 
 	@Test

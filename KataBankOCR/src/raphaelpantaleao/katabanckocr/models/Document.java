@@ -6,18 +6,16 @@ import java.util.Scanner;
 public class Document {
 	private StringBuilder scannedBuilder;
 
-	private Document() {
+	public Document() {
 		scannedBuilder = new StringBuilder();
 	}
 
-	public static Document process(InputStream stream) {
-		Document doc = new Document();
+	public void process(InputStream stream) {
 		Scanner scanner = new Scanner(stream);
 		while (scanner.hasNext()) {
-			doc.scannedBuilder.append(scanner.nextLine() + "\n");
+			this.scannedBuilder.append(scanner.nextLine() + "\n");
 		}
 		scanner.close();
-		return doc;
 	}
 
 	public String entries() {

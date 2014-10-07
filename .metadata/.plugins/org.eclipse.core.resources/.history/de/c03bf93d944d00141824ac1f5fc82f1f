@@ -1,0 +1,5 @@
+package raphaelpantaleao.katabanckocr.builders;
+
+public abstract class AbstractComponentBuilder<T> {
+
+}
