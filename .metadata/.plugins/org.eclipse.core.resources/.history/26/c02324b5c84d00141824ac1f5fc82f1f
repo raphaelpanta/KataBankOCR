@@ -2,8 +2,6 @@ package raphaelpantaleao.bankocr.tests.endtoend;
 
 import static raphaelpantaleao.bankocr.tests.endtoend.TestConstants.ACCOUNT_FOUND_123456789;
 import static raphaelpantaleao.bankocr.tests.endtoend.TestConstants.SCANNED_TEXT_123456789;
-import static raphaelpantaleao.katabanckocr.Constants.SCANNER_BUTTON_NAME;
-import static raphaelpantaleao.katabanckocr.Constants.SELECT_FILE_BUTTON_NAME;
 
 import java.awt.HeadlessException;
 import java.lang.reflect.InvocationTargetException;
@@ -20,13 +18,13 @@ public class BankOCREndToEndTest {
 			InterruptedException {
 		application.openItsUI();
 		application
-				.receivesActionPeformedByAUserUsingAButtonNamed(SELECT_FILE_BUTTON_NAME);
+				.receivesActionPeformedByAUserUsingAButtonNamed("select file button");
 		application.opensAFileDialogForAFileWith(SCANNED_TEXT_123456789);
 		application.showsInputTextAreaReceivedATextLike(SCANNED_TEXT_123456789);
 
-		application.showsAButtonIsEnabledNamed(SCANNER_BUTTON_NAME);
+		application.showsAButtonIsEnabledNamed("scanner button");
 		application
-				.receivesActionPeformedByAUserUsingAButtonNamed(SCANNER_BUTTON_NAME);
+				.receivesActionPeformedByAUserUsingAButtonNamed("scanner button");
 		application
 				.showsOutputTextAreaReceivedATextLike(ACCOUNT_FOUND_123456789);
 	}
