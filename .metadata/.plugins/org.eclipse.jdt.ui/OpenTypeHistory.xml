@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+<typeInfo handle="=KataBankOCR/\/home\/raphael\/.ivy2\/cache\/org.jmock\/jmock\/jars\/jmock-2.6.0.jar&lt;org.jmock.api(Action.class[Action" modifiers="1537" timestamp="1360184935000"/>
+<typeInfo handle="=KataBankOCR/\/usr\/lib\/jvm\/java-8-oracle\/jre\/lib\/rt.jar&lt;java.awt.event(ActionListener.class[ActionListener" modifiers="1537" timestamp="1408750065000"/>
+</typeInfoHistroy>

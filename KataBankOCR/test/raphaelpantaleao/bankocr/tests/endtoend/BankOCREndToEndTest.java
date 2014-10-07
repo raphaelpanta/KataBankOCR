@@ -8,6 +8,7 @@ import static raphaelpantaleao.katabanckocr.Constants.SELECT_FILE_BUTTON_NAME;
 import java.awt.HeadlessException;
 import java.lang.reflect.InvocationTargetException;
 
+import org.junit.After;
 import org.junit.Test;
 
 public class BankOCREndToEndTest {
@@ -31,4 +32,8 @@ public class BankOCREndToEndTest {
 				.showsOutputTextAreaReceivedATextLike(ACCOUNT_FOUND_123456789);
 	}
 
+	@After
+	public void dispose() {
+		application.dispose();
+	}
 }

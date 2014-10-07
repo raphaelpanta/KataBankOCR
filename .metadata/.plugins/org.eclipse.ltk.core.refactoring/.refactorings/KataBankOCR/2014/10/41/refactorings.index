@@ -45,3 +45,8 @@
 1412647085461	Extract constant 'OUTPUT'
 1412647110003	Rename field 'OUTPUT_LABEL_TEXT'
 1412647115773	Rename field 'OUTPUT_LABEL_'
+1412648670253	Rename type 'Document'
+1412648686976	Rename local variable 'stream'
+1412648694496	Rename local variable 'streammed'
+1412648721785	Rename local variable 'streammedDoc'
+1412682917315	Convert local variable 'scannedFile' to field

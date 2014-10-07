@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 
 import raphaelpantaleao.katabanckocr.listeners.ScanFileListener;
 import raphaelpantaleao.katabanckocr.listeners.SelectFileListener;
-import raphaelpantaleao.katabanckocr.models.Document;
+import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
 import raphaelpantaleao.katabankocr.ui.UIFrame;
 
 public class Main {
@@ -22,14 +22,14 @@ public class Main {
 	public static void main(String[] args) throws HeadlessException,
 			InvocationTargetException, InterruptedException {
 		invokeAndWait(() -> {
-			final Document doc = new Document();
+			final DocumentProcessor doc = new DocumentProcessor();
 			final JFileChooser jFileChooser = createFileChooser();
 			final UIFrame topLevelFrame = createUIFrame(doc, jFileChooser);
 			topLevelFrame.setVisible(true);
 		});
 	}
 
-	private static UIFrame createUIFrame(final Document doc,
+	private static UIFrame createUIFrame(final DocumentProcessor doc,
 			final JFileChooser jFileChooser) {
 		UIFrame topLevelFrame = new UIFrame(TITLE_NAME, TITLE_TEXT) {
 			private static final long serialVersionUID = -4459872068101440744L;

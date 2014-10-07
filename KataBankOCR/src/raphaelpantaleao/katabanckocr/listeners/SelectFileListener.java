@@ -5,17 +5,17 @@ import java.awt.event.ActionListener;
 
 import raphaelpantaleao.katabanckocr.exceptions.StreamProviderException;
 import raphaelpantaleao.katabanckocr.interfaces.StreamProvider;
-import raphaelpantaleao.katabanckocr.models.Document;
+import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
 import raphaelpantaleao.katabankocr.ui.UIFrame;
 
 public class SelectFileListener implements ActionListener {
 
 	private UIFrame frame;
 	private StreamProvider provider;
-	private Document doc;
+	private DocumentProcessor doc;
 
 	public SelectFileListener(UIFrame frame, StreamProvider provider,
-			Document doc) {
+			DocumentProcessor doc) {
 		this.frame = frame;
 		this.provider = provider;
 		this.doc = doc;

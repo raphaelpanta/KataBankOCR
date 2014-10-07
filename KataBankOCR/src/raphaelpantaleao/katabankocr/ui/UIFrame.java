@@ -40,7 +40,7 @@ public class UIFrame extends JFrame {
 	public UIFrame(String name, String title) {
 		configFrame(name, title);
 
-		inputTextArea = newTextArea().named(INPUT_TEXT_AREA_NAME).withRows(3)
+		inputTextArea = newTextArea().named(INPUT_TEXT_AREA_NAME).withRows(4)
 				.withColumns(27).nonEditable().build();
 		outputTextArea = newTextArea().named(OUTPUT_TEXT_AREA_NAME).withRows(1)
 				.withColumns(9).nonEditable().build();
