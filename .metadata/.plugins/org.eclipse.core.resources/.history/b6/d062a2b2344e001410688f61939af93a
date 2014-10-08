@@ -1,8 +1,0 @@
-package raphaelpantaleao.bankocr.tests.unit;
-
-import org.jmock.Mockery;
-
-public class DocumentProcessorTest {
-	
-	@Rule public 
-}

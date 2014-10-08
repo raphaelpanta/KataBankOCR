@@ -11,8 +11,7 @@ public class Zero extends AbstractNumberParser {
 
 	@Override
 	protected String next(String digits, int pos) {
-		// TODO Auto-generated method stub
-		return null;
+		return new One().parse(digits, pos);
 	}
 
 	@Override

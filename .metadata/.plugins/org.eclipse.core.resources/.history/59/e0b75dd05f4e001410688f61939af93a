@@ -1,0 +1,54 @@
+package raphaelpantaleao.katabanckocr.models;
+
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import raphaelpantaleao.katabanckocr.parser.NumberParser;
+import raphaelpantaleao.katabanckocr.parser.Zero;
+
+public class DocumentProcessor {
+	private StringBuilder scannedBuilder;
+
+	public DocumentProcessor() {
+		scannedBuilder = new StringBuilder();
+	}
+
+	public void process(InputStream streamedDoc) {
+		Scanner scanner = new Scanner(streamedDoc);
+		while (scanner.hasNextLine()) {
+			this.scannedBuilder.append(scanner.nextLine() + "\n");
+		}
+		scanner.close();
+	}
+
+	public String entries() {
+		Scanner scanner = new Scanner(new BufferedInputStream(
+				new ByteArrayInputStream(scannedBuilder.toString().getBytes())));
+
+		List<String> digits = new ArrayList<>();
+		int i = 0;
+		while (scanner.hasNextLine()) {
+			String digit = "";
+			digit += scanner.nextLine();
+			if (i > 4) {
+				digits.add(digit);
+				digit = "";
+			}
+		}
+
+		NumberParser parser = new Zero();
+		String result = "";
+		for (String string : digits) {
+			result += parser.parse(string) + "\n";
+		}
+		return parser.parse(digits) + "\n";
+	}
+
+	public String unprocessedEntries() {
+		return scannedBuilder.toString();
+	}
+}

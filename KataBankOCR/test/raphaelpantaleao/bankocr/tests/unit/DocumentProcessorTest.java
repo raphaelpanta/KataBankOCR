@@ -3,8 +3,8 @@ package raphaelpantaleao.bankocr.tests.unit;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static raphaelpantaleao.bankocr.tests.endtoend.TestConstants.ACCOUNTS_EXPECTED;
-import static raphaelpantaleao.bankocr.tests.endtoend.TestConstants.NUMBER_IN_DIGITS;
+import static raphaelpantaleao.bankocr.tests.TestConstants.ACCOUNTS_EXPECTED;
+import static raphaelpantaleao.bankocr.tests.TestConstants.NUMBER_IN_DIGITS;
 
 import java.io.ByteArrayInputStream;
 
@@ -17,7 +17,7 @@ public class DocumentProcessorTest {
 	private final DocumentProcessor docProcessor = new DocumentProcessor();
 
 	@Test
-	public void digitsConvertionSuccessfully() {
+	public void wellformedDigitsConvertsSuccessfully() {
 		docProcessor.process(aStream());
 		assertThat(docProcessor.entries(),
 				is(equalTo(concat(ACCOUNTS_EXPECTED))));

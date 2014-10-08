@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.swing.SwingWorker"/>
-<fullyQualifiedTypeName name="org.hamcrest.MatcherAssert"/>
-<fullyQualifiedTypeName name="org.hamcrest.Matchers"/>
-<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="com.objogate.wl.swing.driver.JFileChooserDriver"/>
-<fullyQualifiedTypeName name="java.io.StringReader"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="org.hamcrest.core.IsEqual"/>
@@ -24,7 +18,6 @@
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="java.lang.Throwable"/>
 <fullyQualifiedTypeName name="raphaelpantaleao.katabanckocr.exceptions.StreamProviderException"/>
-<fullyQualifiedTypeName name="raphaelpantaleao.katabanckocr.interfaces.StreamProvider"/>
 <fullyQualifiedTypeName name="javax.management.RuntimeErrorException"/>
 <fullyQualifiedTypeName name="raphaelpantaleao.katabanckocr.FileChooserStreamProvider"/>
 <fullyQualifiedTypeName name="javax.swing.JFileChooser"/>
@@ -41,6 +34,30 @@
 <fullyQualifiedTypeName name="raphaelpantaleao.katabanckocr.Constants"/>
 <fullyQualifiedTypeName name="org.junit.After"/>
 <fullyQualifiedTypeName name="raphaelpantaleao.bankocr.tests.endtoend.BankOCRDriver"/>
-<fullyQualifiedTypeName name="raphaelpantaleao.bankocr.tests.endtoend.TestConstants"/>
 <fullyQualifiedTypeName name="org.jmock.Mockery"/>
+<fullyQualifiedTypeName name="org.jmock.integration.junit4.JUnit4Mockery"/>
+<fullyQualifiedTypeName name="org.junit.Rule"/>
+<fullyQualifiedTypeName name="org.jmock.lib.action.DoAllAction"/>
+<fullyQualifiedTypeName name="org.junit.Before"/>
+<fullyQualifiedTypeName name="raphaelpantaleao.bankocr.tests.unit.DocumentProcessorTest"/>
+<fullyQualifiedTypeName name="raphaelpantaleao.katabanckocr.interfaces.StreamProvider"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="com.google.inject.matcher.Matcher"/>
+<fullyQualifiedTypeName name="java.util.regex.Pattern"/>
+<fullyQualifiedTypeName name="java.util.regex.Matcher"/>
+<fullyQualifiedTypeName name="org.junit.Assert"/>
+<fullyQualifiedTypeName name="java.io.StringReader"/>
+<fullyQualifiedTypeName name="org.hamcrest.Matchers"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="raphaelpantaleao.katabanckocr.models.DocumentProcessor"/>
+<fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
+<fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
+<fullyQualifiedTypeName name="raphaelpantaleao.katabanckocr.parser.NumberParser"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="raphaelpantaleao.katabanckocr.parser.Zero"/>
+<fullyQualifiedTypeName name="raphaelpantaleao.bankocr.tests.endtoend.TestConstants"/>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="raphaelpantaleao.katabanckocr.parser.AbstractNumberParser"/>
 </qualifiedTypeNameHistroy>
