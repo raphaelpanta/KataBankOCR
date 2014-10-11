@@ -14,4 +14,8 @@ public class Constants {
 	public static final String SELECT_FILE_BUTTON_NAME = "select file button";
 	public static final String SCANNER_BUTTON_TEXT = "Scan File...";
 	public static final String SCANNER_BUTTON_NAME = "scanner button";
+	public static final int MAX_SCANNER_LINE_LENGTH = 27;
+	public static final int MAX_SCANNER_LINES = 4;
+	public static final int MAX_ACCOUNT_LINE_LENGTH = 9;
+	public static final int MAX_ACCOUNT_LINES = 1;
 }

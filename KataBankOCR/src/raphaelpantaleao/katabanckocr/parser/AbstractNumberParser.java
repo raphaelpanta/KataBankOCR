@@ -1,5 +1,7 @@
 package raphaelpantaleao.katabanckocr.parser;
 
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.MAX_SCANNER_LINES;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.MAX_SCANNER_LINE_LENGTH;
 import raphaelpantaleao.katabanckocr.interfaces.NumberParser;
 
 abstract class AbstractNumberParser implements NumberParser {
@@ -17,12 +19,12 @@ abstract class AbstractNumberParser implements NumberParser {
 	protected final String parse(String digits, int pos) {
 		int i = pos * 3;
 		boolean identified = true;
-		for (int j = 0; j < 4; j++) {
-			identified &= digits.charAt(i + 27 * j) == getPattern().charAt(
+		for (int j = 0; j < MAX_SCANNER_LINES; j++) {
+			identified &= digits.charAt(i + MAX_SCANNER_LINE_LENGTH * j) == getPattern().charAt(
 					j * 3)
-					&& digits.charAt(i + 1 + 27 * j) == getPattern().charAt(
+					&& digits.charAt(i + 1 + MAX_SCANNER_LINE_LENGTH * j) == getPattern().charAt(
 							j * 3 + 1)
-					&& digits.charAt(i + 2 + 27 * j) == getPattern().charAt(
+					&& digits.charAt(i + 2 + MAX_SCANNER_LINE_LENGTH * j) == getPattern().charAt(
 							j * 3 + 2);
 		}
 		if (identified) {

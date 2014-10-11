@@ -56,7 +56,7 @@ public class Main {
 
 	private static JFileChooser createFileChooser() {
 		final JFileChooser jFileChooser = new JFileChooser() {
-			private static final long serialVersionUID = 1L;
+			private static final long serialVersionUID = 4487606734991064569L;
 
 			{
 				setName(FILE_CHOOSER_NAME);
@@ -67,7 +67,8 @@ public class Main {
 
 	private static ErrorHandlerListener createErrorHandlerFor(JFrame frame) {
 		return (exception) -> {
-			showMessageDialog(frame, exception.getMessage(), "Error", ERROR_MESSAGE);
+			showMessageDialog(frame, exception.getMessage(), "Error",
+					ERROR_MESSAGE);
 			exception.printStackTrace();
 		};
 	}

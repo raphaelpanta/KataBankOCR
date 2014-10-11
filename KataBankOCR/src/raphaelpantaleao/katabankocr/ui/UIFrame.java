@@ -3,6 +3,10 @@ package raphaelpantaleao.katabankocr.ui;
 import static raphaelpantaleao.katabanckocr.appconstants.Constants.INPUT_LABEL_NAME;
 import static raphaelpantaleao.katabanckocr.appconstants.Constants.INPUT_LABEL_TEXT;
 import static raphaelpantaleao.katabanckocr.appconstants.Constants.INPUT_TEXT_AREA_NAME;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.MAX_ACCOUNT_LINES;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.MAX_ACCOUNT_LINE_LENGTH;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.MAX_SCANNER_LINES;
+import static raphaelpantaleao.katabanckocr.appconstants.Constants.MAX_SCANNER_LINE_LENGTH;
 import static raphaelpantaleao.katabanckocr.appconstants.Constants.OUTPUT_LABEL_NAME;
 import static raphaelpantaleao.katabanckocr.appconstants.Constants.OUTPUT_LABEL_TEXT;
 import static raphaelpantaleao.katabanckocr.appconstants.Constants.OUTPUT_TEXT_AREA_NAME;
@@ -40,10 +44,10 @@ public class UIFrame extends JFrame {
 	public UIFrame(String name, String title) {
 		configFrame(name, title);
 
-		inputTextArea = newTextArea().named(INPUT_TEXT_AREA_NAME).withRows(4)
-				.withColumns(27).nonEditable().build();
-		outputTextArea = newTextArea().named(OUTPUT_TEXT_AREA_NAME).withRows(1)
-				.withColumns(9).nonEditable().build();
+		inputTextArea = newTextArea().named(INPUT_TEXT_AREA_NAME).withRows(MAX_SCANNER_LINES)
+				.withColumns(MAX_SCANNER_LINE_LENGTH).nonEditable().build();
+		outputTextArea = newTextArea().named(OUTPUT_TEXT_AREA_NAME).withRows(MAX_ACCOUNT_LINES)
+				.withColumns(MAX_ACCOUNT_LINE_LENGTH).nonEditable().build();
 
 		add(newJLabel().named(INPUT_LABEL_NAME).withText(INPUT_LABEL_TEXT)
 				.build());
