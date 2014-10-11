@@ -7,43 +7,43 @@ public class TestConstants {
 			+ "                           \n";
 	public static final String ACCOUNT_FOUND_123456789 = "123456789\n";
 
-	private static final String ZEROS = " _  _  _  _  _  _  _  _  _ \n"
+	public static final String ZEROS = " _  _  _  _  _  _  _  _  _ \n"
 			+ "| || || || || || || || || |\n" + "|_||_||_||_||_||_||_||_||_|\n"
 			+ "                           \n";
 
-	private static final String ONES = "                           \n"
+	public static final String ONES = "                           \n"
 			+ "  |  |  |  |  |  |  |  |  |\n" + "  |  |  |  |  |  |  |  |  |\n"
 			+ "                           \n";
 
-	private static final String TWOS = " _  _  _  _  _  _  _  _  _ \n"
+	public static final String TWOS = " _  _  _  _  _  _  _  _  _ \n"
 			+ " _| _| _| _| _| _| _| _| _|\n" + "|_ |_ |_ |_ |_ |_ |_ |_ |_ \n"
 			+ "                           \n";
 
-	private static final String THREES = " _  _  _  _  _  _  _  _  _ \n"
+	public static final String THREES = " _  _  _  _  _  _  _  _  _ \n"
 			+ " _| _| _| _| _| _| _| _| _|\n" + " _| _| _| _| _| _| _| _| _|\n"
 			+ "                           \n";
 
-	private static final String FOURS = "                           \n"
+	public static final String FOURS = "                           \n"
 			+ "|_||_||_||_||_||_||_||_||_|\n" + "  |  |  |  |  |  |  |  |  |\n"
 			+ "                           \n";
 
-	private static final String FIVES = " _  _  _  _  _  _  _  _  _ \n"
+	public static final String FIVES = " _  _  _  _  _  _  _  _  _ \n"
 			+ "|_ |_ |_ |_ |_ |_ |_ |_ |_ \n" + " _| _| _| _| _| _| _| _| _|\n"
 			+ "                           \n";
 
-	private static final String SIXS = " _  _  _  _  _  _  _  _  _ \n"
+	public static final String SIXS = " _  _  _  _  _  _  _  _  _ \n"
 			+ "|_ |_ |_ |_ |_ |_ |_ |_ |_ \n" + "|_||_||_||_||_||_||_||_||_|\n"
 			+ "                           \n";
 
-	private static final String SEVENS = " _  _  _  _  _  _  _  _  _ \n"
+	public static final String SEVENS = " _  _  _  _  _  _  _  _  _ \n"
 			+ "  |  |  |  |  |  |  |  |  |\n" + "  |  |  |  |  |  |  |  |  |\n"
 			+ "                           \n";
 
-	private static final String EIGHTS = " _  _  _  _  _  _  _  _  _ \n"
+	public static final String EIGHTS = " _  _  _  _  _  _  _  _  _ \n"
 			+ "|_||_||_||_||_||_||_||_||_|\n" + "|_||_||_||_||_||_||_||_||_|\n"
 			+ "                           \n";
 
-	private static final String NINES = " _  _  _  _  _  _  _  _  _ \n"
+	public static final String NINES = " _  _  _  _  _  _  _  _  _ \n"
 			+ "|_||_||_||_||_||_||_||_||_|\n" + " _| _| _| _| _| _| _| _| _|\n"
 			+ "                           \n";
 

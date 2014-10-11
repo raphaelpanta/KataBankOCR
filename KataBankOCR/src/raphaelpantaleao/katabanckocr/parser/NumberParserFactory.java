@@ -5,7 +5,7 @@ public class NumberParserFactory {
 
 	}
 
-	public static AbstractNumberParser getParserInstance() {
+	public static AbstractNumberParser createParser() {
 		return new Zero();
 	}
 }

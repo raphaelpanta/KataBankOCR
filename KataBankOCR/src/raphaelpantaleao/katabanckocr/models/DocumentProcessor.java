@@ -1,6 +1,7 @@
 package raphaelpantaleao.katabanckocr.models;
 
 import static java.util.stream.Collectors.joining;
+import static raphaelpantaleao.katabanckocr.parser.NumberParserFactory.createParser;
 
 import java.io.InputStream;
 import java.util.LinkedList;
@@ -11,7 +12,6 @@ import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
 import raphaelpantaleao.katabanckocr.exceptions.EntryValidationException;
 import raphaelpantaleao.katabanckocr.interfaces.NumberParser;
 import raphaelpantaleao.katabanckocr.models.values.Entry;
-import raphaelpantaleao.katabanckocr.parser.NumberParserFactory;
 
 public class DocumentProcessor {
 	private final List<Entry> accountEntries;
@@ -41,7 +41,7 @@ public class DocumentProcessor {
 	}
 
 	public String entries() {
-		final NumberParser parser = NumberParserFactory.getParserInstance();
+		final NumberParser parser = createParser();
 
 		return accountEntries
 				.stream()
