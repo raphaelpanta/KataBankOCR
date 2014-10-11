@@ -1,6 +1,6 @@
 package raphaelpantaleao.katabanckocr.parser;
 
-public class Three extends AbstractNumberParser {
+class Three extends AbstractNumberParser {
 
 	@Override
 	protected String getPattern() {

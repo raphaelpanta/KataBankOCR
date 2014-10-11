@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
 import raphaelpantaleao.katabanckocr.interfaces.NumberParser;
-import raphaelpantaleao.katabanckocr.parser.Zero;
+import raphaelpantaleao.katabanckocr.parser.NumberParserFactory;
 
 public class DocumentProcessor {
 	private StringBuilder scannedBuilder;
@@ -39,7 +39,7 @@ public class DocumentProcessor {
 	}
 
 	private String parseDigitsFrom(Scanner scanner) {
-		NumberParser parser = new Zero();
+		NumberParser parser = NumberParserFactory.getParserInstance();
 		String result = "";
 		for (String string : extractDigitsFrom(scanner)) {
 			result += parser.parse(string) + "\n";

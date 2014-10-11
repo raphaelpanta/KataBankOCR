@@ -1,6 +1,6 @@
 package raphaelpantaleao.katabanckocr.parser;
 
-public class Zero extends AbstractNumberParser {
+class Zero extends AbstractNumberParser {
 
 	private String zero = " _ " + "| |" + "|_|" + "   ";
 

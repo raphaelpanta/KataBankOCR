@@ -2,7 +2,7 @@ package raphaelpantaleao.katabanckocr.parser;
 
 import raphaelpantaleao.katabanckocr.interfaces.NumberParser;
 
-public abstract class AbstractNumberParser implements NumberParser {
+abstract class AbstractNumberParser implements NumberParser {
 
 	abstract protected String getPattern();
 

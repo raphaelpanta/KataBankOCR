@@ -171,6 +171,7 @@ public class BankOCRDriver extends JFrameDriver {
 		jOptionPaneDriver.is(showingOnScreen());
 		jOptionPaneDriver.has(aMessageThat(),
 				containsString("File is malformed: "));
+		jOptionPaneDriver.clickOK();
 	}
 
 	private Query<JOptionPane, String> aMessageThat() {
