@@ -1,5 +1,7 @@
 package raphaelpantaleao.katabanckocr;
 
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import static javax.swing.JOptionPane.showMessageDialog;
 import static javax.swing.SwingUtilities.invokeAndWait;
 import static raphaelpantaleao.katabanckocr.appconstants.Constants.FILE_CHOOSER_NAME;
 import static raphaelpantaleao.katabanckocr.appconstants.Constants.TITLE_NAME;
@@ -12,6 +14,7 @@ import java.lang.reflect.InvocationTargetException;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
+import raphaelpantaleao.katabanckocr.listeners.ErrorHandlerListener;
 import raphaelpantaleao.katabanckocr.listeners.ScanFileListener;
 import raphaelpantaleao.katabanckocr.listeners.SelectFileListener;
 import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
@@ -38,7 +41,8 @@ public class Main {
 			{
 				addScanFileListener(invokeLater(new ScanFileListener(doc, this)));
 				addSelectFileListener(invokeLater(new SelectFileListener(this,
-						createStreamProviderFor(this), doc)));
+						createStreamProviderFor(this), doc,
+						createErrorHandlerFor(this))));
 			}
 
 		};
@@ -59,5 +63,12 @@ public class Main {
 			}
 		};
 		return jFileChooser;
+	}
+
+	private static ErrorHandlerListener createErrorHandlerFor(JFrame frame) {
+		return (exception) -> {
+			showMessageDialog(frame, exception.getMessage(), "Error", ERROR_MESSAGE);
+			exception.printStackTrace();
+		};
 	}
 }

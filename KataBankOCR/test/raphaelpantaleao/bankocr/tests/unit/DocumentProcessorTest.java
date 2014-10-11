@@ -10,6 +10,7 @@ import java.io.ByteArrayInputStream;
 
 import org.junit.Test;
 
+import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
 import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
 
 public class DocumentProcessorTest {
@@ -17,7 +18,8 @@ public class DocumentProcessorTest {
 	private final DocumentProcessor docProcessor = new DocumentProcessor();
 
 	@Test
-	public void wellformedDigitsConvertsSuccessfully() {
+	public void wellformedDigitsConvertsSuccessfully()
+			throws DocumentProcessorException {
 		docProcessor.process(aStream());
 		assertThat(docProcessor.entries(),
 				is(equalTo(concat(ACCOUNTS_EXPECTED))));

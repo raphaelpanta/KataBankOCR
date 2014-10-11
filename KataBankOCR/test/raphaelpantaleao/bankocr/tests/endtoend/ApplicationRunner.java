@@ -65,5 +65,10 @@ public class ApplicationRunner {
 	
 	public void dispose(){
 		driver.deleteTmpFiles();
+		driver.dispose();
+	}
+
+	public void showsAAlertThatFileHasMalformedText() {
+		driver.opensAErrorDialog();	
 	}
 }

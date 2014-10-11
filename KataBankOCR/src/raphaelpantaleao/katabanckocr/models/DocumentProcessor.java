@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
 import raphaelpantaleao.katabanckocr.interfaces.NumberParser;
 import raphaelpantaleao.katabanckocr.parser.Zero;
 
@@ -17,10 +18,16 @@ public class DocumentProcessor {
 		scannedBuilder = new StringBuilder();
 	}
 
-	public void process(InputStream streamedDoc) {
+	public void process(InputStream streamedDoc)
+			throws DocumentProcessorException {
 		Scanner scanner = new Scanner(streamedDoc);
 		while (scanner.hasNextLine()) {
-			this.scannedBuilder.append(scanner.nextLine() + "\n");
+			String line = scanner.nextLine();
+			if (line.length() != 27) {
+				throw new DocumentProcessorException(
+						"Line lenght is greater than " + 27);
+			}
+			this.scannedBuilder.append(line + "\n");
 		}
 		scanner.close();
 	}

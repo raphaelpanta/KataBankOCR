@@ -1,5 +1,6 @@
 package raphaelpantaleao.bankocr.tests.endtoend;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 import static raphaelpantaleao.katabanckocr.appconstants.Constants.FILE_CHOOSER_NAME;
 import static raphaelpantaleao.katabanckocr.appconstants.Constants.TITLE_NAME;
@@ -12,19 +13,23 @@ import java.lang.reflect.Method;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
+import org.hamcrest.Description;
 import org.hamcrest.FeatureMatcher;
 import org.hamcrest.Matcher;
 
 import com.objogate.exception.Defect;
 import com.objogate.wl.Prober;
+import com.objogate.wl.Query;
 import com.objogate.wl.swing.AWTEventQueueProber;
 import com.objogate.wl.swing.ComponentSelector;
 import com.objogate.wl.swing.driver.JButtonDriver;
 import com.objogate.wl.swing.driver.JFileChooserDriver;
 import com.objogate.wl.swing.driver.JFrameDriver;
 import com.objogate.wl.swing.driver.JLabelDriver;
+import com.objogate.wl.swing.driver.JOptionPaneDriver;
 import com.objogate.wl.swing.driver.JTextComponentDriver;
 import com.objogate.wl.swing.gesture.GesturePerformer;
 
@@ -158,5 +163,27 @@ public class BankOCRDriver extends JFrameDriver {
 	public void deleteTmpFiles() {
 		if (scannedFile.exists())
 			scannedFile.delete();
+	}
+
+	public void opensAErrorDialog() {
+		JOptionPaneDriver jOptionPaneDriver = new JOptionPaneDriver(this,
+				JOptionPane.class);
+		jOptionPaneDriver.is(showingOnScreen());
+		jOptionPaneDriver.has(aMessageThat(),
+				containsString("File is malformed: "));
+	}
+
+	private Query<JOptionPane, String> aMessageThat() {
+		return new Query<JOptionPane, String>() {
+			@Override
+			public String query(JOptionPane pane) {
+				return pane.getMessage().toString();
+			}
+
+			@Override
+			public void describeTo(Description desc) {
+				desc.appendText("Message");
+			}
+		};
 	}
 }

@@ -32,6 +32,17 @@ public class BankOCREndToEndTest {
 				.showsOutputTextAreaReceivedATextLike(ACCOUNT_FOUND_123456789);
 	}
 
+	@Test
+	public void userOpensAMalformedFile() throws HeadlessException,
+			InvocationTargetException, InterruptedException {
+		application.openItsUI();
+		application
+				.receivesActionPeformedByAUserUsingAButtonNamed(SELECT_FILE_BUTTON_NAME);
+		application
+				.opensAFileDialogForAFileWith("---------------------------------");
+		application.showsAAlertThatFileHasMalformedText();
+	}
+
 	@After
 	public void dispose() {
 		application.dispose();
