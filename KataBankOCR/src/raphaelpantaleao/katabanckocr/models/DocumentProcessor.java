@@ -1,68 +1,57 @@
 package raphaelpantaleao.katabanckocr.models;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
+import static java.util.stream.Collectors.joining;
+
 import java.io.InputStream;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
+import raphaelpantaleao.katabanckocr.exceptions.EntryValidationException;
 import raphaelpantaleao.katabanckocr.interfaces.NumberParser;
+import raphaelpantaleao.katabanckocr.models.values.Entry;
 import raphaelpantaleao.katabanckocr.parser.NumberParserFactory;
 
 public class DocumentProcessor {
-	private StringBuilder scannedBuilder;
+	private final List<Entry> accountEntries;
 
 	public DocumentProcessor() {
-		scannedBuilder = new StringBuilder();
+		accountEntries = new LinkedList<>();
 	}
 
 	public void process(InputStream streamedDoc)
 			throws DocumentProcessorException {
-		Scanner scanner = new Scanner(streamedDoc);
-		while (scanner.hasNextLine()) {
-			String line = scanner.nextLine();
-			if (line.length() != 27) {
-				throw new DocumentProcessorException(
-						"Line lenght is greater than " + 27);
+		try (Scanner scanner = new Scanner(streamedDoc)) {
+			while (scanner.hasNextLine()) {
+				accountEntries.add(extractEntryFrom(scanner));
 			}
-			this.scannedBuilder.append(line + "\n");
 		}
-		scanner.close();
+	}
+
+	private Entry extractEntryFrom(Scanner scanner)
+			throws DocumentProcessorException {
+		Entry entry;
+		try {
+			entry = Entry.create().with(scanner);
+		} catch (EntryValidationException e) {
+			throw new DocumentProcessorException(e);
+		}
+		return entry;
 	}
 
 	public String entries() {
-		Scanner scanner = new Scanner(new BufferedInputStream(
-				new ByteArrayInputStream(scannedBuilder.toString().getBytes())));
-		return parseDigitsFrom(scanner);
-	}
+		final NumberParser parser = NumberParserFactory.getParserInstance();
 
-	private String parseDigitsFrom(Scanner scanner) {
-		NumberParser parser = NumberParserFactory.getParserInstance();
-		String result = "";
-		for (String string : extractDigitsFrom(scanner)) {
-			result += parser.parse(string) + "\n";
-		}
-		return result;
-	}
-
-	private List<String> extractDigitsFrom(Scanner scanner) {
-		List<String> digits = new ArrayList<>();
-		int i = 1;
-		String digit = "";
-		while (scanner.hasNextLine()) {
-			digit += scanner.nextLine();
-			if (i % 4 == 0) {
-				digits.add(digit);
-				digit = "";
-			}
-			i++;
-		}
-		return digits;
+		return accountEntries
+				.stream()
+				.map((entry) -> parser.parse(entry.entry.replaceAll("\\n", "")))
+				.collect(joining("\n"))
+				+ "\n";
 	}
 
 	public String unprocessedEntries() {
-		return scannedBuilder.toString();
+		return accountEntries.stream().map((entry) -> entry.entry)
+				.collect(joining());
 	}
 }

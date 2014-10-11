@@ -10,4 +10,8 @@ public class DocumentProcessorException extends Exception {
 	public DocumentProcessorException(String msg) {
 		super(msg);
 	}
+
+	public DocumentProcessorException(Throwable cause) {
+		super(cause);
+	}
 }
