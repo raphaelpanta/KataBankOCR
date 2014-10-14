@@ -14,11 +14,12 @@ import org.junit.Test;
 import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
 import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
 import raphaelpantaleao.katabanckocr.models.values.EntryExtractor;
+import raphaelpantaleao.katabanckocr.models.values.EntryValidator;
 
 public class DocumentProcessorTest {
 
 	private final DocumentProcessor docProcessor = new DocumentProcessor(
-			new EntryExtractor());
+			new EntryExtractor(new EntryValidator()));
 
 	@Test
 	public void wellformedDigitsConvertsSuccessfully()
