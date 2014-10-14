@@ -8,8 +8,4 @@ public class Entry {
 		this.entry = entry;
 	}
 
-	public static EntryBuilder create() {
-		return new EntryBuilder();
-	}
-
 }
