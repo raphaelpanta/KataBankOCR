@@ -3,6 +3,7 @@ package raphaelpantaleao.bankocr.tests.integration;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static raphaelpantaleao.bankocr.tests.StreamCreator.createStreamOf;
 import static raphaelpantaleao.bankocr.tests.TestConstants.ACCOUNTS_EXPECTED;
 import static raphaelpantaleao.bankocr.tests.TestConstants.NUMBER_IN_DIGITS;
 
@@ -10,7 +11,6 @@ import java.io.InputStream;
 
 import org.junit.Test;
 
-import raphaelpantaleao.bankocr.tests.StreamCreator;
 import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
 import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
 
@@ -36,6 +36,6 @@ public class DocumentProcessorTest {
 
 	private InputStream aStream() {
 	
-		return StreamCreator.createStreamOf(NUMBER_IN_DIGITS);
+		return createStreamOf(NUMBER_IN_DIGITS);
 	}
 }

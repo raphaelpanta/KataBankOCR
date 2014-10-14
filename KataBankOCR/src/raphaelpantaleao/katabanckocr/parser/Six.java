@@ -1,5 +1,6 @@
 package raphaelpantaleao.katabanckocr.parser;
 
+
 class Six extends AbstractNumberParser {
 
 	@Override

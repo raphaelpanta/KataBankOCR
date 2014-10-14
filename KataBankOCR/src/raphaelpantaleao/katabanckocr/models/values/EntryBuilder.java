@@ -28,15 +28,22 @@ public class EntryBuilder {
 		try {
 			line = aScanner.nextLine();
 		} catch (NoSuchElementException e) {
-			throw new EntryValidationException("Entry has insuficient lines.", e);
+			throw new EntryValidationException("Entry has insuficient lines.",
+					e);
 		}
 		return line;
 	}
 
 	private void validateLengthOf(String line) throws EntryValidationException {
-		if (line.length() != MAX_SCANNER_LINE_LENGTH) {
-			throw new EntryValidationException("Line lenght is greater than "
-					+ MAX_SCANNER_LINE_LENGTH);
+		if (line.length() > MAX_SCANNER_LINE_LENGTH) {
+			throw new EntryValidationException(
+					"Entry has lines with length greater than "
+							+ MAX_SCANNER_LINE_LENGTH + ".");
+		}
+		if (line.length() < MAX_SCANNER_LINE_LENGTH) {
+			throw new EntryValidationException(
+					"Entry has lines with length less than "
+							+ MAX_SCANNER_LINE_LENGTH + ".");
 		}
 	}
 }

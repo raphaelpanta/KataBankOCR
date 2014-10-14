@@ -1,5 +1,6 @@
 package raphaelpantaleao.katabanckocr.parser;
 
+
 class One extends AbstractNumberParser{
 
 	@Override
@@ -13,7 +14,7 @@ class One extends AbstractNumberParser{
 	}
 
 	@Override
-	protected String next(String digits, int pos) {
+	protected String next(String digits, int pos)  {
 		return new Two().parse(digits, pos);
 	}
 

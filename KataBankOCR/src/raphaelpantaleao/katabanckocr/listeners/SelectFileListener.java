@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
 import raphaelpantaleao.katabanckocr.exceptions.StreamProviderException;
+import raphaelpantaleao.katabanckocr.interfaces.ErrorHandlerListener;
 import raphaelpantaleao.katabanckocr.interfaces.StreamProvider;
 import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
 import raphaelpantaleao.katabankocr.ui.UIFrame;

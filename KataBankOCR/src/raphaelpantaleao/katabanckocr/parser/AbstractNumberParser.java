@@ -20,12 +20,12 @@ abstract class AbstractNumberParser implements NumberParser {
 		int i = pos * 3;
 		boolean identified = true;
 		for (int j = 0; j < MAX_SCANNER_LINES; j++) {
-			identified &= digits.charAt(i + MAX_SCANNER_LINE_LENGTH * j) == getPattern().charAt(
-					j * 3)
-					&& digits.charAt(i + 1 + MAX_SCANNER_LINE_LENGTH * j) == getPattern().charAt(
-							j * 3 + 1)
-					&& digits.charAt(i + 2 + MAX_SCANNER_LINE_LENGTH * j) == getPattern().charAt(
-							j * 3 + 2);
+			identified &= digits.charAt(i + MAX_SCANNER_LINE_LENGTH * j) == getPattern()
+					.charAt(j * 3)
+					&& digits.charAt(i + 1 + MAX_SCANNER_LINE_LENGTH * j) == getPattern()
+							.charAt(j * 3 + 1)
+					&& digits.charAt(i + 2 + MAX_SCANNER_LINE_LENGTH * j) == getPattern()
+							.charAt(j * 3 + 2);
 		}
 		if (identified) {
 			if (i >= 24)

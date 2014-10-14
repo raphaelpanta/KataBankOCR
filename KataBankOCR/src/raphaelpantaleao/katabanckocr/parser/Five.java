@@ -1,13 +1,11 @@
 package raphaelpantaleao.katabanckocr.parser;
 
+
 class Five extends AbstractNumberParser {
 
 	@Override
 	protected String getPattern() {
-		return " _ " 
-			 + "|_ " 
-			 + " _|" 
-			 + "   ";
+		return " _ " + "|_ " + " _|" + "   ";
 	}
 
 	@Override

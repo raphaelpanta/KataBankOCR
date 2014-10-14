@@ -42,12 +42,10 @@ public class DocumentProcessor {
 
 	public String entries() {
 		final NumberParser parser = createParser();
-
 		return accountEntries
 				.stream()
 				.map((entry) -> parser.parse(entry.entry.replaceAll("\\n", "")))
-				.collect(joining("\n"))
-				+ "\n";
+				.collect(joining("\n")) + "\n";
 	}
 
 	public String unprocessedEntries() {

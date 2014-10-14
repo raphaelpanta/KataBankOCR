@@ -14,7 +14,7 @@ import java.lang.reflect.InvocationTargetException;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
-import raphaelpantaleao.katabanckocr.listeners.ErrorHandlerListener;
+import raphaelpantaleao.katabanckocr.interfaces.ErrorHandlerListener;
 import raphaelpantaleao.katabanckocr.listeners.ScanFileListener;
 import raphaelpantaleao.katabanckocr.listeners.SelectFileListener;
 import raphaelpantaleao.katabanckocr.models.DocumentProcessor;

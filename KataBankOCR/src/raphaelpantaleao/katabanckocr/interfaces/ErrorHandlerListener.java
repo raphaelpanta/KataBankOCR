@@ -1,4 +1,4 @@
-package raphaelpantaleao.katabanckocr.listeners;
+package raphaelpantaleao.katabanckocr.interfaces;
 
 @FunctionalInterface
 public interface ErrorHandlerListener {
