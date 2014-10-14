@@ -71,6 +71,10 @@ public class ApplicationRunner {
 		driver.opensAFileDialogForAFileWith(aString);
 	}
 
+	public void opensAFileDialogForAFileAndCancels() {
+		driver.opensAFileDialogAndCancels();
+	}
+
 	public void dispose() {
 		driver.deleteTmpFiles();
 		driver.dispose();

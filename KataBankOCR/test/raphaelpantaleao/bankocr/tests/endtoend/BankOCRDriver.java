@@ -91,6 +91,12 @@ public class BankOCRDriver extends JFrameDriver {
 		jFileChooserDriver.approve();
 	}
 
+	public void opensAFileDialogAndCancels() {
+		JFileChooserDriver jFileChooserDriver = new JFileChooserDriver(this,
+				named(FILE_CHOOSER_NAME));
+		jFileChooserDriver.cancel();		
+	}
+
 	private File prepareTmpFileFor(String aString) {
 		final String tmpdir = System.getProperty("java.io.tmpdir");
 		final File tmpDir = new File(tmpdir);
@@ -161,7 +167,8 @@ public class BankOCRDriver extends JFrameDriver {
 	}
 
 	public void deleteTmpFiles() {
-		if (scannedFile.exists())
+
+		if (scannedFile != null && scannedFile.exists())
 			scannedFile.delete();
 	}
 

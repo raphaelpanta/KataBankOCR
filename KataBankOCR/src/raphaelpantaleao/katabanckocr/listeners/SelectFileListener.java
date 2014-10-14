@@ -28,6 +28,7 @@ public class SelectFileListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent evt) {
+		evt.getSource();
 		try {
 			doc.process(provider.getStream());
 		} catch (DocumentProcessorException e) {

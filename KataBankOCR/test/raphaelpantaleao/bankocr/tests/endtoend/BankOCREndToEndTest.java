@@ -13,8 +13,9 @@ import org.junit.Test;
 
 public class BankOCREndToEndTest {
 
+	
 	private final ApplicationRunner application = new ApplicationRunner();
-
+	
 	@Test
 	public void userSelectsAScannedFileAndExhibitsItsAccountSuccesfully()
 			throws HeadlessException, InvocationTargetException,
@@ -41,6 +42,15 @@ public class BankOCREndToEndTest {
 		application
 				.opensAFileDialogForAFileWith("---------------------------------");
 		application.showsAAlertThatFileHasMalformedText();
+	}
+
+	@Test
+	public void userCancelsFileDialog() throws HeadlessException,
+			InvocationTargetException, InterruptedException {
+		application.openItsUI();
+		application
+				.receivesActionPeformedByAUserUsingAButtonNamed(SELECT_FILE_BUTTON_NAME);
+		application.opensAFileDialogForAFileAndCancels();
 	}
 
 	@After
