@@ -39,26 +39,6 @@ public class EntryTest {
 		assertExceptionWhenHasLinesWithCharactersGreaterThan27();
 	}
 
-	@Test
-	public void acceptOnlyPipesUnderScoresAndWhitespace() {
-		String invalidZeroEntry = " _  _  _  _  _  _  _  _  _ \n"
-				+ "| || || || || || || || || |\n"
-				+ "|_||_||_||_||_||_||_||_||_|\n"
-				+ " _ _                       \n";
-		Scanner aScanner = new Scanner(createAStreamWith(ZEROS,
-				invalidZeroEntry));
-
-		try {
-			Entry entry1 = create().with(aScanner);
-			Entry entry2 = create().with(aScanner);
-		} catch (EntryValidationException e) {
-			assertThat(
-					"Entry error message",
-					e.getMessage(),
-					containsString("Entry only accepts pipes, underscores and writespace in first 3 lines and only whitespace in 4th line."));
-		}
-	}
-
 	private void assertExceptionWhenHasLinesWithCharactersGreaterThan27() {
 		assertException("                               \n"
 				+ "                               \n"

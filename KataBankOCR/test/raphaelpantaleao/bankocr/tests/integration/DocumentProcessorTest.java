@@ -17,7 +17,8 @@ import raphaelpantaleao.katabanckocr.models.values.EntryExtractor;
 
 public class DocumentProcessorTest {
 
-	private final DocumentProcessor docProcessor = new DocumentProcessor(new EntryExtractor());
+	private final DocumentProcessor docProcessor = new DocumentProcessor(
+			new EntryExtractor());
 
 	@Test
 	public void wellformedDigitsConvertsSuccessfully()
@@ -36,7 +37,7 @@ public class DocumentProcessorTest {
 	}
 
 	private InputStream aStream() {
-	
+
 		return createStreamOf(NUMBER_IN_DIGITS);
 	}
 }
