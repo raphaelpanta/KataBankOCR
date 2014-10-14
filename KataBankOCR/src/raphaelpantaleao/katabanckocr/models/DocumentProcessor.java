@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
+import raphaelpantaleao.katabanckocr.exceptions.EntryValidationException;
 import raphaelpantaleao.katabanckocr.interfaces.NumberParser;
 import raphaelpantaleao.katabanckocr.models.values.Entry;
 import raphaelpantaleao.katabanckocr.models.values.EntryExtractor;
@@ -23,7 +24,11 @@ public class DocumentProcessor {
 
 	public void process(InputStream streamedDoc)
 			throws DocumentProcessorException {
-		accountEntries.addAll(extractor.extractEntriesFrom(streamedDoc));
+		try {
+			accountEntries.addAll(extractor.extractEntriesFrom(streamedDoc));
+		} catch (EntryValidationException e) {
+			throw new DocumentProcessorException(e);
+		}
 	}
 
 	public String entries() {
