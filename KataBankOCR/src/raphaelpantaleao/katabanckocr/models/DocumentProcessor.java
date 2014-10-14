@@ -6,38 +6,24 @@ import static raphaelpantaleao.katabanckocr.parser.NumberParserFactory.createPar
 import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 
 import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
-import raphaelpantaleao.katabanckocr.exceptions.EntryValidationException;
 import raphaelpantaleao.katabanckocr.interfaces.NumberParser;
 import raphaelpantaleao.katabanckocr.models.values.Entry;
+import raphaelpantaleao.katabanckocr.models.values.EntryExtractor;
 
 public class DocumentProcessor {
 	private final List<Entry> accountEntries;
+	private final EntryExtractor extractor;
 
-	public DocumentProcessor() {
+	public DocumentProcessor(final EntryExtractor extractor) {
 		accountEntries = new LinkedList<>();
+		this.extractor = extractor;
 	}
 
 	public void process(InputStream streamedDoc)
 			throws DocumentProcessorException {
-		try (Scanner scanner = new Scanner(streamedDoc)) {
-			while (scanner.hasNextLine()) {
-				accountEntries.add(extractEntryFrom(scanner));
-			}
-		}
-	}
-
-	private Entry extractEntryFrom(Scanner scanner)
-			throws DocumentProcessorException {
-		Entry entry;
-		try {
-			entry = Entry.create().with(scanner);
-		} catch (EntryValidationException e) {
-			throw new DocumentProcessorException(e);
-		}
-		return entry;
+		accountEntries.addAll(extractor.extractEntriesFrom(streamedDoc));
 	}
 
 	public String entries() {
@@ -45,7 +31,8 @@ public class DocumentProcessor {
 		return accountEntries
 				.stream()
 				.map((entry) -> parser.parse(entry.entry.replaceAll("\\n", "")))
-				.collect(joining("\n")) + "\n";
+				.collect(joining("\n"))
+				+ "\n";
 	}
 
 	public String unprocessedEntries() {

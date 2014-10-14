@@ -60,7 +60,7 @@ public class EntryTest {
 	}
 
 	private void assertExceptionWhenHasLinesWithCharactersGreaterThan27() {
-		asserException("                               \n"
+		assertException("                               \n"
 				+ "                               \n"
 				+ "                               \n"
 				+ "                               \n",
@@ -69,12 +69,12 @@ public class EntryTest {
 	}
 
 	private void assertExceptionWhenHasLinesWithCharactersLessThan27() {
-		asserException("     \n     \n     \n     \n",
+		assertException("     \n     \n     \n     \n",
 				containsString("Entry has lines with length less than "
 						+ MAX_SCANNER_LINE_LENGTH + "."));
 	}
 
-	private void asserException(String text, Matcher<String> m) {
+	private void assertException(String text, Matcher<String> m) {
 		try {
 			Scanner aScanner = new Scanner(createAStreamWith(text));
 			Entry entry = create().with(aScanner);

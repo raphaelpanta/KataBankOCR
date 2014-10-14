@@ -18,6 +18,7 @@ import raphaelpantaleao.katabanckocr.interfaces.ErrorHandlerListener;
 import raphaelpantaleao.katabanckocr.listeners.ScanFileListener;
 import raphaelpantaleao.katabanckocr.listeners.SelectFileListener;
 import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
+import raphaelpantaleao.katabanckocr.models.values.EntryExtractor;
 import raphaelpantaleao.katabanckocr.providers.FileChooserStreamProvider;
 import raphaelpantaleao.katabankocr.ui.UIFrame;
 
@@ -26,7 +27,8 @@ public class Main {
 	public static void main(String[] args) throws HeadlessException,
 			InvocationTargetException, InterruptedException {
 		invokeAndWait(() -> {
-			final DocumentProcessor doc = new DocumentProcessor();
+			final DocumentProcessor doc = new DocumentProcessor(
+					new EntryExtractor());
 			final JFileChooser jFileChooser = createFileChooser();
 			final UIFrame topLevelFrame = createUIFrame(doc, jFileChooser);
 			topLevelFrame.setVisible(true);
