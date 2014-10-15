@@ -42,6 +42,7 @@ public class BankOCREndToEndTest {
 		application
 				.opensAFileDialogForAFileWith("---------------------------------");
 		application.showsAAlertThatFileHasMalformedText();
+		//TODO: assert that scanner button won't enable
 	}
 
 	@Test
@@ -51,6 +52,7 @@ public class BankOCREndToEndTest {
 		application
 				.receivesActionPeformedByAUserUsingAButtonNamed(SELECT_FILE_BUTTON_NAME);
 		application.opensAFileDialogForAFileAndCancels();
+		
 	}
 
 	@After
