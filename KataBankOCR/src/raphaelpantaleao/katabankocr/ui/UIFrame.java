@@ -107,8 +107,11 @@ public class UIFrame extends JFrame {
 	}
 
 	public void appendInput(String string) {
-		inputTextArea.append(string);
-		scannerButton.setEnabled(true);
+		boolean stringIsNotEmpty = string != null && !string.isEmpty();
+		if (stringIsNotEmpty) {
+			inputTextArea.append(string);
+			scannerButton.setEnabled(true);
+		}
 	}
 
 }

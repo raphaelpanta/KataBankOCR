@@ -71,6 +71,10 @@ public class BankOCRDriver extends JFrameDriver {
 				.hasText(equalTo(text));
 	}
 
+	public void hasADisabledButtonNamed(String name) {
+		new JButtonDriver(this, JButton.class, named(name)).is(enabled(false));
+	}
+
 	public void hasATextAreaWith(String textAreaName, String text, int rows,
 			int columns) {
 		new JTextComponentDriver<JTextArea>(this, JTextArea.class,
@@ -94,7 +98,7 @@ public class BankOCRDriver extends JFrameDriver {
 	public void opensAFileDialogAndCancels() {
 		JFileChooserDriver jFileChooserDriver = new JFileChooserDriver(this,
 				named(FILE_CHOOSER_NAME));
-		jFileChooserDriver.cancel();		
+		jFileChooserDriver.cancel();
 	}
 
 	private File prepareTmpFileFor(String aString) {

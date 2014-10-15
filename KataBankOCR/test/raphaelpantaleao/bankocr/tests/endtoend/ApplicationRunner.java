@@ -63,8 +63,12 @@ public class ApplicationRunner {
 				MAX_ACCOUNT_LINE_LENGTH);
 	}
 
-	public void showsAButtonIsEnabledNamed(String string) {
-		driver.hasAButtonWith(string);
+	public void showsAButtonIsEnabledNamed(String withAName) {
+		driver.hasAButtonWith(withAName);
+	}
+
+	public void showsAButtonIsDisabledNamed(String withAName) {
+		driver.hasADisabledButtonNamed(withAName);
 	}
 
 	public void opensAFileDialogForAFileWith(String aString) {

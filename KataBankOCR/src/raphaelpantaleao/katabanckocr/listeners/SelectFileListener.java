@@ -2,6 +2,7 @@ package raphaelpantaleao.katabanckocr.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.InputStream;
 
 import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
 import raphaelpantaleao.katabanckocr.exceptions.StreamProviderException;
@@ -28,9 +29,9 @@ public class SelectFileListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent evt) {
-		evt.getSource();
 		try {
-			doc.process(provider.getStream());
+			InputStream stream = provider.getStream();
+				doc.process(stream);
 		} catch (DocumentProcessorException e) {
 			DocumentProcessorException docException = new DocumentProcessorException(
 					"File is malformed: " + e.getMessage(), e);
