@@ -1,7 +1,0 @@
-1412373959364	Extract local variable 'comp'
-1412449404582	Extract local variable 'comp'
-1412449427106	Rename local variable 'comp'
-1412449736255	Rename method 'runAssertions'
-1412449955599	Rename method 'receivesActionPeformedByAUserUsing'
-1412451183368	Extract local variable 'comp'
-1412453541821	Rename method 'isEnabled'

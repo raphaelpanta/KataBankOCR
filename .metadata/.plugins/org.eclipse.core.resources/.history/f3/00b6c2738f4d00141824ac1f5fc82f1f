@@ -1,5 +1,0 @@
-package raphaelpantaleao.katabanckocr.exceptions;
-
-public class StreamProviderException extends Exception {
-
-}

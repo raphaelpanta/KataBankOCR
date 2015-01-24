@@ -1,5 +1,0 @@
-package raphaelpantaleao.katabanckocr.interfaces;
-
-public interface StreamProvider {
-
-}

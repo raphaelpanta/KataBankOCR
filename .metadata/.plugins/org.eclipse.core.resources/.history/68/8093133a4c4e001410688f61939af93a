@@ -1,6 +1,0 @@
-package raphaelpantaleao.katabanckocr.parser;
-
-public abstract class AbstractNumberParser implements NumberParser {
-
-	
-}

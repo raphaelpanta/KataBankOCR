@@ -1,2 +1,0 @@
-eclipse.preferences.version=1
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="digits.charAt(i)"/>\n<expression enabled\="true" text\=" getPattern().charAt(j * 3)"/>\n<expression enabled\="true" text\="digits.charAt(i + 1)"/>\n<expression enabled\="true" text\="getPattern().charAt(j * 3 + 1)"/>\n<expression enabled\="true" text\="digits.charAt(i + 2 )"/>\n<expression enabled\="true" text\="getPattern().charAt(&\#10;&\#9;&\#9;&\#9;&\#9;&\#9;&\#9;&\#9;j * 3 + 2)"/>\n</watchExpressions>\n
