@@ -41,9 +41,10 @@ public class Main {
 
 			{
 				addScanFileListener(invokeLater(new ScanFileListener(doc, this)));
-				addSelectFileListener(invokeLater(new SelectFileListener(this,
-						new FileChooserStreamProvider(createFileChooser(), this), doc,
-						new JDialogErrorHandler(this))));
+				addSelectFileListener(invokeLater(new SelectFileListener(
+						this,
+						new FileChooserStreamProvider(createFileChooser(), this),
+						doc, new JDialogErrorHandler(this))));
 			}
 
 		};
@@ -51,13 +52,8 @@ public class Main {
 	}
 
 	private static JFileChooser createFileChooser() {
-		final JFileChooser jFileChooser = new JFileChooser() {
-			private static final long serialVersionUID = 4487606734991064569L;
-
-			{
-				setName(FILE_CHOOSER_NAME);
-			}
-		};
+		final JFileChooser jFileChooser = new JFileChooser();
+		jFileChooser.setName(FILE_CHOOSER_NAME);
 		return jFileChooser;
 	}
 
