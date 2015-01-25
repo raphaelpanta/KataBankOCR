@@ -1,5 +1,6 @@
-package raphaelpantaleao.katabanckocr;
+package raphaelpantaleao.katabanckocr.modules;
 
+import static com.google.inject.Guice.createInjector;
 import static javax.swing.SwingUtilities.invokeAndWait;
 import static raphaelpantaleao.katabanckocr.api.NonBlokingActionListener.asNonBlocking;
 import static raphaelpantaleao.katabanckocr.constants.Constants.FILE_CHOOSER_NAME;
@@ -14,14 +15,13 @@ import javax.swing.JFileChooser;
 import raphaelpantaleao.katabanckocr.api.ScanFileListener;
 import raphaelpantaleao.katabanckocr.api.SelectFileListener;
 import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
-import raphaelpantaleao.katabanckocr.models.EntryExtractor;
-import raphaelpantaleao.katabanckocr.models.EntryValidator;
 import raphaelpantaleao.katabankocr.ui.FileChooserStreamProvider;
 import raphaelpantaleao.katabankocr.ui.JDialogErrorHandler;
 import raphaelpantaleao.katabankocr.ui.UIFrame;
 
-public class Main {
+import com.google.inject.Injector;
 
+public class Main {
 	public static void main(String[] args) throws HeadlessException,
 			InvocationTargetException, InterruptedException {
 		invokeAndWait(() -> {
@@ -32,7 +32,8 @@ public class Main {
 	}
 
 	private static DocumentProcessor creteDocumentProcessor() {
-		return new DocumentProcessor(new EntryExtractor(new EntryValidator()));
+		Injector injector = createInjector(new BackOCRModule());
+		return injector.getInstance(DocumentProcessor.class);
 	}
 
 	private static UIFrame createUIFrame(final DocumentProcessor doc,

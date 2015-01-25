@@ -7,12 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.inject.Inject;
+
 import raphaelpantaleao.katabanckocr.exceptions.EntryValidationException;
 
 public class EntryExtractor {
 
 	private final EntryValidator validator;
 
+	@Inject
 	public EntryExtractor(EntryValidator validator) {
 		this.validator = validator;
 	}

@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import raphaelpantaleao.katabanckocr.api.NumberParser;
 import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
 import raphaelpantaleao.katabanckocr.exceptions.EntryValidationException;
@@ -15,6 +17,7 @@ public class DocumentProcessor {
 	private final List<Entry> accountEntries;
 	private final EntryExtractor extractor;
 
+	@Inject
 	public DocumentProcessor(final EntryExtractor extractor) {
 		accountEntries = new LinkedList<>();
 		this.extractor = extractor;
