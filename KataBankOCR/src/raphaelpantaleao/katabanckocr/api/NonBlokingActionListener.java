@@ -19,7 +19,7 @@ public class NonBlokingActionListener implements ActionListener {
 
 	}
 
-	public static ActionListener invokeLater(ActionListener e) {
+	public static ActionListener asNonBlocking(ActionListener e) {
 		return new NonBlokingActionListener(e);
 	}
 }

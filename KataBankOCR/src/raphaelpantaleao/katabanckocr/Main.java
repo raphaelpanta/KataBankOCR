@@ -1,7 +1,7 @@
 package raphaelpantaleao.katabanckocr;
 
 import static javax.swing.SwingUtilities.invokeAndWait;
-import static raphaelpantaleao.katabanckocr.api.NonBlokingActionListener.invokeLater;
+import static raphaelpantaleao.katabanckocr.api.NonBlokingActionListener.asNonBlocking;
 import static raphaelpantaleao.katabanckocr.constants.Constants.FILE_CHOOSER_NAME;
 import static raphaelpantaleao.katabanckocr.constants.Constants.TITLE_NAME;
 import static raphaelpantaleao.katabanckocr.constants.Constants.TITLE_TEXT;
@@ -38,9 +38,9 @@ public class Main {
 	private static UIFrame createUIFrame(final DocumentProcessor doc,
 			final JFileChooser jFileChooser) {
 		UIFrame topLevelFrame = new UIFrame(TITLE_NAME, TITLE_TEXT);
-		topLevelFrame.addScanFileListener(invokeLater(new ScanFileListener(doc,
+		topLevelFrame.addScanFileListener(asNonBlocking(new ScanFileListener(doc,
 				topLevelFrame)));
-		topLevelFrame.addSelectFileListener(invokeLater(new SelectFileListener(
+		topLevelFrame.addSelectFileListener(asNonBlocking(new SelectFileListener(
 				topLevelFrame, new FileChooserStreamProvider(jFileChooser,
 						topLevelFrame), doc, new JDialogErrorHandler(
 						topLevelFrame))));
