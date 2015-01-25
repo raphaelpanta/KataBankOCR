@@ -10,7 +10,6 @@ import java.awt.HeadlessException;
 import java.lang.reflect.InvocationTargetException;
 
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 
 import raphaelpantaleao.katabanckocr.api.ScanFileListener;
 import raphaelpantaleao.katabanckocr.api.SelectFileListener;
@@ -26,28 +25,25 @@ public class Main {
 	public static void main(String[] args) throws HeadlessException,
 			InvocationTargetException, InterruptedException {
 		invokeAndWait(() -> {
-			final DocumentProcessor doc = new DocumentProcessor(
-					new EntryExtractor(new EntryValidator()));
-			final JFileChooser jFileChooser = createFileChooser();
-			final UIFrame topLevelFrame = createUIFrame(doc, jFileChooser);
+			final UIFrame topLevelFrame = createUIFrame(
+					creteDocumentProcessor(), createFileChooser());
 			topLevelFrame.setVisible(true);
 		});
 	}
 
+	private static DocumentProcessor creteDocumentProcessor() {
+		return new DocumentProcessor(new EntryExtractor(new EntryValidator()));
+	}
+
 	private static UIFrame createUIFrame(final DocumentProcessor doc,
 			final JFileChooser jFileChooser) {
-		UIFrame topLevelFrame = new UIFrame(TITLE_NAME, TITLE_TEXT) {
-			private static final long serialVersionUID = -4459872068101440744L;
-
-			{
-				addScanFileListener(invokeLater(new ScanFileListener(doc, this)));
-				addSelectFileListener(invokeLater(new SelectFileListener(
-						this,
-						new FileChooserStreamProvider(createFileChooser(), this),
-						doc, new JDialogErrorHandler(this))));
-			}
-
-		};
+		UIFrame topLevelFrame = new UIFrame(TITLE_NAME, TITLE_TEXT);
+		topLevelFrame.addScanFileListener(invokeLater(new ScanFileListener(doc,
+				topLevelFrame)));
+		topLevelFrame.addSelectFileListener(invokeLater(new SelectFileListener(
+				topLevelFrame, new FileChooserStreamProvider(jFileChooser,
+						topLevelFrame), doc, new JDialogErrorHandler(
+						topLevelFrame))));
 		return topLevelFrame;
 	}
 
