@@ -1,8 +1,8 @@
 package raphaelpantaleao.katabanckocr.parser;
 
-import static raphaelpantaleao.katabanckocr.appconstants.Constants.MAX_SCANNER_LINES;
-import static raphaelpantaleao.katabanckocr.appconstants.Constants.MAX_SCANNER_LINE_LENGTH;
-import raphaelpantaleao.katabanckocr.interfaces.NumberParser;
+import static raphaelpantaleao.katabanckocr.constants.Constants.MAX_SCANNER_LINES;
+import static raphaelpantaleao.katabanckocr.constants.Constants.MAX_SCANNER_LINE_LENGTH;
+import raphaelpantaleao.katabanckocr.api.NumberParser;
 
 abstract class AbstractNumberParser implements NumberParser {
 

@@ -19,8 +19,8 @@ import org.junit.Test;
 
 import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
 import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
-import raphaelpantaleao.katabanckocr.models.values.EntryExtractor;
-import raphaelpantaleao.katabanckocr.models.values.EntryValidator;
+import raphaelpantaleao.katabanckocr.models.EntryExtractor;
+import raphaelpantaleao.katabanckocr.models.EntryValidator;
 
 public class DocumentProcessorTest {
 

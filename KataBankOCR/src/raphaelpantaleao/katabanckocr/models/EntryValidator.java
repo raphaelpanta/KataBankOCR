@@ -1,6 +1,6 @@
-package raphaelpantaleao.katabanckocr.models.values;
+package raphaelpantaleao.katabanckocr.models;
 
-import static raphaelpantaleao.katabanckocr.appconstants.Constants.MAX_SCANNER_LINE_LENGTH;
+import static raphaelpantaleao.katabanckocr.constants.Constants.MAX_SCANNER_LINE_LENGTH;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;

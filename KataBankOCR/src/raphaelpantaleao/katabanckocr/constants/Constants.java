@@ -1,4 +1,4 @@
-package raphaelpantaleao.katabanckocr.appconstants;
+package raphaelpantaleao.katabanckocr.constants;
 
 public class Constants {
 	public static final String TITLE_TEXT = "BankOCR App";

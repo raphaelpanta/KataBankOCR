@@ -1,4 +1,4 @@
-package raphaelpantaleao.katabanckocr.listeners;
+package raphaelpantaleao.katabanckocr.api;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,8 +6,6 @@ import java.io.InputStream;
 
 import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
 import raphaelpantaleao.katabanckocr.exceptions.StreamProviderException;
-import raphaelpantaleao.katabanckocr.interfaces.ErrorHandlerListener;
-import raphaelpantaleao.katabanckocr.interfaces.StreamProvider;
 import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
 import raphaelpantaleao.katabankocr.ui.UIFrame;
 

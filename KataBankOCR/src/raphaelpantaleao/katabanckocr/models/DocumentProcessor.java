@@ -7,11 +7,9 @@ import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 
+import raphaelpantaleao.katabanckocr.api.NumberParser;
 import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
 import raphaelpantaleao.katabanckocr.exceptions.EntryValidationException;
-import raphaelpantaleao.katabanckocr.interfaces.NumberParser;
-import raphaelpantaleao.katabanckocr.models.values.Entry;
-import raphaelpantaleao.katabanckocr.models.values.EntryExtractor;
 
 public class DocumentProcessor {
 	private final List<Entry> accountEntries;

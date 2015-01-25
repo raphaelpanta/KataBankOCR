@@ -1,4 +1,4 @@
-package raphaelpantaleao.katabanckocr.builders;
+package raphaelpantaleao.katabankocr.ui;
 
 import javax.swing.JLabel;
 

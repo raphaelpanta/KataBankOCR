@@ -1,4 +1,4 @@
-package raphaelpantaleao.katabanckocr.models.values;
+package raphaelpantaleao.katabanckocr.models;
 
 
 public class Entry {

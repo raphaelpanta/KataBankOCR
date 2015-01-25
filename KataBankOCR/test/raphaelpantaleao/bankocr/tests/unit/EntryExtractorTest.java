@@ -4,7 +4,7 @@ import static org.hamcrest.Matchers.containsString;
 import static raphaelpantaleao.bankocr.tests.StreamCreator.createAStreamWith;
 import static raphaelpantaleao.bankocr.tests.TestConstants.ONES;
 import static raphaelpantaleao.bankocr.tests.TestConstants.ZEROS;
-import static raphaelpantaleao.katabanckocr.appconstants.Constants.MAX_SCANNER_LINE_LENGTH;
+import static raphaelpantaleao.katabanckocr.constants.Constants.MAX_SCANNER_LINE_LENGTH;
 
 import org.hamcrest.Matcher;
 import org.junit.Rule;
@@ -12,8 +12,8 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import raphaelpantaleao.katabanckocr.exceptions.EntryValidationException;
-import raphaelpantaleao.katabanckocr.models.values.EntryExtractor;
-import raphaelpantaleao.katabanckocr.models.values.EntryValidator;
+import raphaelpantaleao.katabanckocr.models.EntryExtractor;
+import raphaelpantaleao.katabanckocr.models.EntryValidator;
 
 public class EntryExtractorTest {
 

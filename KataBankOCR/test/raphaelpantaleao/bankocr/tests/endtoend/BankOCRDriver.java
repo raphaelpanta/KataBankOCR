@@ -2,8 +2,8 @@ package raphaelpantaleao.bankocr.tests.endtoend;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
-import static raphaelpantaleao.katabanckocr.appconstants.Constants.FILE_CHOOSER_NAME;
-import static raphaelpantaleao.katabanckocr.appconstants.Constants.TITLE_NAME;
+import static raphaelpantaleao.katabanckocr.constants.Constants.FILE_CHOOSER_NAME;
+import static raphaelpantaleao.katabanckocr.constants.Constants.TITLE_NAME;
 
 import java.io.File;
 import java.io.IOException;

@@ -3,10 +3,10 @@ package raphaelpantaleao.katabanckocr;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static javax.swing.SwingUtilities.invokeAndWait;
-import static raphaelpantaleao.katabanckocr.appconstants.Constants.FILE_CHOOSER_NAME;
-import static raphaelpantaleao.katabanckocr.appconstants.Constants.TITLE_NAME;
-import static raphaelpantaleao.katabanckocr.appconstants.Constants.TITLE_TEXT;
-import static raphaelpantaleao.katabanckocr.listeners.NonBlokingActionListener.invokeLater;
+import static raphaelpantaleao.katabanckocr.api.NonBlokingActionListener.invokeLater;
+import static raphaelpantaleao.katabanckocr.constants.Constants.FILE_CHOOSER_NAME;
+import static raphaelpantaleao.katabanckocr.constants.Constants.TITLE_NAME;
+import static raphaelpantaleao.katabanckocr.constants.Constants.TITLE_TEXT;
 
 import java.awt.HeadlessException;
 import java.lang.reflect.InvocationTargetException;
@@ -14,13 +14,13 @@ import java.lang.reflect.InvocationTargetException;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
-import raphaelpantaleao.katabanckocr.interfaces.ErrorHandlerListener;
-import raphaelpantaleao.katabanckocr.listeners.ScanFileListener;
-import raphaelpantaleao.katabanckocr.listeners.SelectFileListener;
+import raphaelpantaleao.katabanckocr.api.ErrorHandlerListener;
+import raphaelpantaleao.katabanckocr.api.ScanFileListener;
+import raphaelpantaleao.katabanckocr.api.SelectFileListener;
 import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
-import raphaelpantaleao.katabanckocr.models.values.EntryExtractor;
-import raphaelpantaleao.katabanckocr.models.values.EntryValidator;
-import raphaelpantaleao.katabanckocr.providers.FileChooserStreamProvider;
+import raphaelpantaleao.katabanckocr.models.EntryExtractor;
+import raphaelpantaleao.katabanckocr.models.EntryValidator;
+import raphaelpantaleao.katabankocr.ui.FileChooserStreamProvider;
 import raphaelpantaleao.katabankocr.ui.UIFrame;
 
 public class Main {

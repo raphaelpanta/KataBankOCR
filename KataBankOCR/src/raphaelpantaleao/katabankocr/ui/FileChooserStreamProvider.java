@@ -1,4 +1,4 @@
-package raphaelpantaleao.katabanckocr.providers;
+package raphaelpantaleao.katabankocr.ui;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,8 +8,8 @@ import java.io.InputStream;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
+import raphaelpantaleao.katabanckocr.api.StreamProvider;
 import raphaelpantaleao.katabanckocr.exceptions.StreamProviderException;
-import raphaelpantaleao.katabanckocr.interfaces.StreamProvider;
 
 public class FileChooserStreamProvider implements StreamProvider {
 	private JFileChooser chooser;

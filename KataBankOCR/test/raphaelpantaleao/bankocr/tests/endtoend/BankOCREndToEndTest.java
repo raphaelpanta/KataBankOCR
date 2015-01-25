@@ -2,8 +2,8 @@ package raphaelpantaleao.bankocr.tests.endtoend;
 
 import static raphaelpantaleao.bankocr.tests.TestConstants.ACCOUNT_FOUND_123456789;
 import static raphaelpantaleao.bankocr.tests.TestConstants.SCANNED_TEXT_123456789;
-import static raphaelpantaleao.katabanckocr.appconstants.Constants.SCANNER_BUTTON_NAME;
-import static raphaelpantaleao.katabanckocr.appconstants.Constants.SELECT_FILE_BUTTON_NAME;
+import static raphaelpantaleao.katabanckocr.constants.Constants.SCANNER_BUTTON_NAME;
+import static raphaelpantaleao.katabanckocr.constants.Constants.SELECT_FILE_BUTTON_NAME;
 
 import java.awt.HeadlessException;
 import java.lang.reflect.InvocationTargetException;

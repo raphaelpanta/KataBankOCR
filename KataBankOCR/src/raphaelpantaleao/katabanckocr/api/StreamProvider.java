@@ -1,4 +1,4 @@
-package raphaelpantaleao.katabanckocr.interfaces;
+package raphaelpantaleao.katabanckocr.api;
 
 import java.io.InputStream;
 
