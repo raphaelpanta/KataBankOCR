@@ -1,5 +1,7 @@
 package raphaelpantaleao.bankocr.tests.integration;
 
+import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.joining;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -30,15 +32,10 @@ public class DocumentProcessorTest {
 	}
 
 	private String concat(String[] strings) {
-		String result = "";
-		for (String account : strings) {
-			result += account;
-		}
-		return result;
+		return asList(strings).stream().collect(joining());
 	}
 
 	private InputStream aStream() {
-
 		return createStreamOf(NUMBER_IN_DIGITS);
 	}
 }
