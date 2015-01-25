@@ -1,9 +1,9 @@
 package raphaelpantaleao.katabanckocr.api;
 
+import static javax.swing.SwingUtilities.invokeLater;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.SwingUtilities;
 
 public class NonBlokingActionListener implements ActionListener {
 
@@ -15,7 +15,7 @@ public class NonBlokingActionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(final ActionEvent e) {
-		SwingUtilities.invokeLater(() -> actionListener.actionPerformed(e));
+		invokeLater(() -> actionListener.actionPerformed(e));
 
 	}
 
