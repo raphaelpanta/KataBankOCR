@@ -1,17 +1,17 @@
 package raphaelpantaleao.bankocr.tests;
 
+import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.joining;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 public class StreamCreator {
 
 	public static InputStream createStreamOf(String[] strings) {
-		StringBuilder builder = new StringBuilder();
-		for (String string : strings) {
-			builder.append(string);
-		}
+		byte[] stringInBytes = asList(strings).stream().collect(joining()).getBytes();
 		ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(
-				builder.toString().getBytes());
+				stringInBytes);
 		return byteArrayInputStream;
 	}
 
