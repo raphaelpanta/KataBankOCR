@@ -42,17 +42,12 @@ public class Main {
 			{
 				addScanFileListener(invokeLater(new ScanFileListener(doc, this)));
 				addSelectFileListener(invokeLater(new SelectFileListener(this,
-						createStreamProviderFor(this), doc,
+						new FileChooserStreamProvider(createFileChooser(), this), doc,
 						new JDialogErrorHandler(this))));
 			}
 
 		};
 		return topLevelFrame;
-	}
-
-	private static FileChooserStreamProvider createStreamProviderFor(
-			JFrame frame) {
-		return new FileChooserStreamProvider(createFileChooser(), frame);
 	}
 
 	private static JFileChooser createFileChooser() {
