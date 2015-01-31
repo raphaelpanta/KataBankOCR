@@ -1,8 +1,8 @@
 package raphaelpantaleao.katabanckocr.constants;
 
 public class Constants {
-	public static final String TITLE_TEXT = "BankOCR App";
-	public static final String TITLE_NAME = "Bank OCR";
+	public static final String APP_TITLE = "BankOCR App";
+	public static final String APP_NAME = "Bank OCR";
 	public static final String FILE_CHOOSER_NAME = "file chooser";
 	public static final String OUTPUT_LABEL_TEXT = "Output:";
 	public static final String OUTPUT_LABEL_NAME = "output";

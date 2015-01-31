@@ -7,19 +7,19 @@ import java.awt.event.ActionListener;
 
 public class NonBlokingActionListener implements ActionListener {
 
-	private final ActionListener actionListener;
+    private final ActionListener actionListener;
 
-	private NonBlokingActionListener(ActionListener e) {
-		actionListener = e;
-	}
+    private NonBlokingActionListener(ActionListener e) {
+	actionListener = e;
+    }
 
-	@Override
-	public void actionPerformed(final ActionEvent e) {
-		invokeLater(() -> actionListener.actionPerformed(e));
+    @Override
+    public void actionPerformed(final ActionEvent e) {
+	invokeLater(() -> actionListener.actionPerformed(e));
 
-	}
+    }
 
-	public static ActionListener asNonBlocking(ActionListener e) {
-		return new NonBlokingActionListener(e);
-	}
+    public static ActionListener asNonBlocking(ActionListener e) {
+	return new NonBlokingActionListener(e);
+    }
 }

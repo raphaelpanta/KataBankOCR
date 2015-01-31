@@ -4,39 +4,40 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.InputStream;
 
+import javax.inject.Inject;
+import javax.inject.Provider;
+
+import raphaelpantaleao.katabanckocr.controller.DocumentController;
 import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
 import raphaelpantaleao.katabanckocr.exceptions.StreamProviderException;
-import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
-import raphaelpantaleao.katabankocr.ui.UIFrame;
 
 public class SelectFileListener implements ActionListener {
 
-	private final UIFrame frame;
-	private final StreamProvider provider;
-	private final DocumentProcessor doc;
-	private final ErrorHandlerListener errorHandler;
+    private final Provider<DocumentController> controller;
+    private final StreamProvider provider;
+    private final ErrorHandlerListener errorHandler;
 
-	public SelectFileListener(final UIFrame frame,
-			final StreamProvider provider, final DocumentProcessor doc,
-			final ErrorHandlerListener errorHandler) {
-		this.frame = frame;
-		this.provider = provider;
-		this.doc = doc;
-		this.errorHandler = errorHandler;
+    @Inject
+    public SelectFileListener(final Provider<DocumentController> controller,
+	    final StreamProvider provider,
+	    final ErrorHandlerListener errorHandler) {
+	this.controller = controller;
+	this.provider = provider;
+	this.errorHandler = errorHandler;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent evt) {
+	try {
+	    InputStream stream = provider.getStream();
+	    controller.get().process(stream);
+	} catch (DocumentProcessorException e) {
+	    DocumentProcessorException docException = new DocumentProcessorException(
+		    "File is malformed: " + e.getMessage(), e);
+	    errorHandler.onError(docException);
+	} catch (StreamProviderException e) {
+	    errorHandler.onError(e);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent evt) {
-		try {
-			InputStream stream = provider.getStream();
-				doc.process(stream);
-		} catch (DocumentProcessorException e) {
-			DocumentProcessorException docException = new DocumentProcessorException(
-					"File is malformed: " + e.getMessage(), e);
-			errorHandler.onError(docException);
-		} catch (StreamProviderException e) {
-			errorHandler.onError(e);
-		}
-		frame.appendInput(doc.unprocessedEntries());
-	}
+    }
 }

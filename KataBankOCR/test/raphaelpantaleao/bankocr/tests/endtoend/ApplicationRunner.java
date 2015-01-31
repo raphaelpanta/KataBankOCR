@@ -14,12 +14,12 @@ import static raphaelpantaleao.katabanckocr.constants.Constants.SCANNER_BUTTON_N
 import static raphaelpantaleao.katabanckocr.constants.Constants.SCANNER_BUTTON_TEXT;
 import static raphaelpantaleao.katabanckocr.constants.Constants.SELECT_FILE_BUTTON_NAME;
 import static raphaelpantaleao.katabanckocr.constants.Constants.SELECT_FILE_BUTTON_TEXT;
-import static raphaelpantaleao.katabanckocr.constants.Constants.TITLE_TEXT;
+import static raphaelpantaleao.katabanckocr.constants.Constants.APP_TITLE;
 
 import java.awt.HeadlessException;
 import java.lang.reflect.InvocationTargetException;
 
-import raphaelpantaleao.katabanckocr.modules.Main;
+import raphaelpantaleao.katabanckocr.app.Main;
 
 public class ApplicationRunner {
 
@@ -33,7 +33,7 @@ public class ApplicationRunner {
 
 	private void initialUIStateAssertions() {
 		driver = new BankOCRDriver(1000);
-		driver.hasTitle(TITLE_TEXT);
+		driver.hasTitle(APP_TITLE);
 		driver.hasALabelWith(INPUT_LABEL_NAME, INPUT_LABEL_TEXT);
 		driver.hasAButtonWith(SELECT_FILE_BUTTON_NAME, SELECT_FILE_BUTTON_TEXT);
 		driver.hasATextAreaWith(INPUT_TEXT_AREA_NAME, "", MAX_SCANNER_LINES,

@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+import javax.inject.Inject;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
@@ -15,6 +16,7 @@ public class FileChooserStreamProvider implements StreamProvider {
 	private JFileChooser chooser;
 	private JFrame frame;
 
+	@Inject
 	public FileChooserStreamProvider(JFileChooser chooser, JFrame frame) {
 		super();
 		this.chooser = chooser;

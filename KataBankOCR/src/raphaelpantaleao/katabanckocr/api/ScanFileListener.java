@@ -1,23 +1,25 @@
 package raphaelpantaleao.katabanckocr.api;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
-import raphaelpantaleao.katabankocr.ui.UIFrame;
+import javax.inject.Inject;
+import javax.inject.Provider;
+
+import raphaelpantaleao.katabanckocr.controller.DocumentController;
 
 public class ScanFileListener implements ActionListener {
 
-	private DocumentProcessor doc;
-	private final UIFrame frame;
+    private final Provider<DocumentController> controller;
 
-	public ScanFileListener(DocumentProcessor doc, final UIFrame frame) {
-		this.doc = doc;
-		this.frame = frame;
-	}
+    @Inject
+    public ScanFileListener(final Provider<DocumentController> controller) {
+	this.controller = controller;
+    }
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		frame.appendOutput(doc.entries());
-	}
+    @Override
+    public void actionPerformed(ActionEvent e) {
+	controller.get().appendOutput();
+    }
 
 }
