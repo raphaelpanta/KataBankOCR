@@ -3,6 +3,7 @@ package raphaelpantaleao.bankocr.tests.unit;
 import static org.hamcrest.Matchers.containsString;
 import static raphaelpantaleao.bankocr.tests.StreamCreator.createAStreamWith;
 import static raphaelpantaleao.bankocr.tests.TestConstants.ONES;
+import static raphaelpantaleao.bankocr.tests.TestConstants.SCANNED_TEXT_WRONG;
 import static raphaelpantaleao.bankocr.tests.TestConstants.ZEROS;
 import static raphaelpantaleao.katabanckocr.constants.Constants.MAX_SCANNER_LINE_LENGTH;
 
@@ -33,6 +34,17 @@ public class EntryExtractorTest {
 				.expectMessage(containsString("Last Line could only have whitespaces."));
 		extractor
 				.extractEntriesFrom(createAStreamWith(ZEROS, invalidZeroEntry));
+
+	}
+	
+	@Test
+	public void expectsEntryToMatchAPattern()
+			throws EntryValidationException {
+		expectedException.expect(EntryValidationException.class);
+		expectedException
+				.expectMessage(containsString("Account did not match any number patern."));
+		extractor
+				.extractEntriesFrom(createAStreamWith(ZEROS, SCANNED_TEXT_WRONG));
 
 	}
 

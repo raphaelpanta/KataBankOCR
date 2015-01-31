@@ -18,7 +18,6 @@ public class EntryValidator {
 		}
 		boolean notHaveOnlyPipesUnderscoresOrWhitespaces = !aEntry.entry
 				.matches("[\\s\\|\\_\\\\n]+");
-
 		if (notHaveOnlyPipesUnderscoresOrWhitespaces) {
 			throw new EntryValidationException(
 					"First Three lines could only have pipes, underscores and whitespaces.");

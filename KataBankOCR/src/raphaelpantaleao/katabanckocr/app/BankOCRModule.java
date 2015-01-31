@@ -57,6 +57,7 @@ public class BankOCRModule extends AbstractModule {
 			SelectFileListener.class);
 		bind(ActionListener.class).annotatedWith(
 			named("scanFileListener")).to(ScanFileListener.class);
+
 	    });
 	} catch (InvocationTargetException | InterruptedException e) {
 	    throw new RuntimeException(e);
