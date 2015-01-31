@@ -1,21 +1,22 @@
 package raphaelpantaleao.katabanckocr.parser;
 
+import raphaelpantaleao.katabanckocr.patterns.AccountPatterns;
 
 class Nine extends AbstractNumberParser {
 
-	@Override
-	protected String getPattern() {
-		return " _ " + "|_|" + " _|" + "   ";
-	}
+    @Override
+    protected String getPattern() {
+	return AccountPatterns.NINE.getPattern();
+    }
 
-	@Override
-	protected String getNumber() {
-		return "9";
-	}
+    @Override
+    protected String getNumber() {
+	return AccountPatterns.NINE.getNumber();
+    }
 
-	@Override
-	protected String next(String digits, int pos) {
-		return null;
-	}
+    @Override
+    protected String next(String digits, int pos) {
+	return null;
+    }
 
 }

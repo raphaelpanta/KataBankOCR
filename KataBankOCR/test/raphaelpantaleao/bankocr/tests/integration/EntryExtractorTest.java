@@ -1,4 +1,4 @@
-package raphaelpantaleao.bankocr.tests.unit;
+package raphaelpantaleao.bankocr.tests.integration;
 
 import static org.hamcrest.Matchers.containsString;
 import static raphaelpantaleao.bankocr.tests.StreamCreator.createAStreamWith;

@@ -16,8 +16,7 @@ public enum AccountPatterns {
     ONE {
 	@Override
 	public String getPattern() {
-	    // TODO Auto-generated method stub
-	    return null;
+	    return "   " + "  |" + "  |" + "   ";
 	}
 
 	@Override
@@ -28,8 +27,7 @@ public enum AccountPatterns {
     TWO {
 	@Override
 	public String getPattern() {
-	    // TODO Auto-generated method stub
-	    return null;
+	    return " _ " + " _|" + "|_ " + "   ";
 	}
 
 	@Override
@@ -40,8 +38,7 @@ public enum AccountPatterns {
     THREE {
 	@Override
 	public String getPattern() {
-	    // TODO Auto-generated method stub
-	    return null;
+	    return " _ " + " _|" + " _|" + "   ";
 	}
 
 	@Override
@@ -52,8 +49,7 @@ public enum AccountPatterns {
     FOUR {
 	@Override
 	public String getPattern() {
-	    // TODO Auto-generated method stub
-	    return null;
+	    return "   " + "|_|" + "  |" + "   ";
 	}
 
 	@Override
@@ -64,8 +60,7 @@ public enum AccountPatterns {
     FIVE {
 	@Override
 	public String getPattern() {
-	    // TODO Auto-generated method stub
-	    return null;
+	    return " _ " + "|_ " + " _|" + "   ";
 	}
 
 	@Override
@@ -76,8 +71,7 @@ public enum AccountPatterns {
     SIX {
 	@Override
 	public String getPattern() {
-	    // TODO Auto-generated method stub
-	    return null;
+	    return " _ " + "|_ " + "|_|" + "   ";
 	}
 
 	@Override
@@ -88,8 +82,7 @@ public enum AccountPatterns {
     SEVEN {
 	@Override
 	public String getPattern() {
-	    // TODO Auto-generated method stub
-	    return null;
+	    return " _ " + "  |" + "  |" + "   ";
 	}
 
 	@Override
@@ -100,8 +93,7 @@ public enum AccountPatterns {
     EIGHT {
 	@Override
 	public String getPattern() {
-	    // TODO Auto-generated method stub
-	    return null;
+	    return " _ " + "|_|" + "|_|" + "   ";
 	}
 
 	@Override
@@ -112,8 +104,7 @@ public enum AccountPatterns {
     NINE {
 	@Override
 	public String getPattern() {
-	    // TODO Auto-generated method stub
-	    return null;
+	    return " _ " + "|_|" + " _|" + "   ";
 	}
 
 	@Override
