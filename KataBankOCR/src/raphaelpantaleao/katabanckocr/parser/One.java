@@ -2,22 +2,27 @@ package raphaelpantaleao.katabanckocr.parser;
 
 import raphaelpantaleao.katabanckocr.patterns.AccountPatterns;
 
+class One extends AbstractNumberParser {
 
-class One extends AbstractNumberParser{
+    @Override
+    protected String getPattern() {
+	return AccountPatterns.ONE.getPattern();
+    }
 
-	@Override
-	protected String getPattern() {
-		return AccountPatterns.ONE.getPattern();
-	}
+    @Override
+    protected String getNumber() {
+	return AccountPatterns.ONE.getNumber();
+    }
 
-	@Override
-	protected String getNumber() {
-		return AccountPatterns.ONE.getNumber();
-	}
+    @Override
+    protected String next(String digits, int pos) {
+	return new Two().parse(digits, pos);
+    }
 
-	@Override
-	protected String next(String digits, int pos)  {
-		return new Two().parse(digits, pos);
-	}
+    @Override
+    boolean matches(String digits, int pos) {
+
+	return AccountPatterns.ONE.matches(digits, pos);
+    }
 
 }

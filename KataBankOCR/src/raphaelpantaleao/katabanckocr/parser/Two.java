@@ -19,4 +19,9 @@ class Two extends AbstractNumberParser {
 	return new Three().parse(digits, pos);
     }
 
+    @Override
+    boolean matches(String digits, int pos) {
+
+	return AccountPatterns.TWO.matches(digits, pos);
+    }
 }

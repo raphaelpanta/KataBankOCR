@@ -18,5 +18,11 @@ class Eight extends AbstractNumberParser {
     protected String next(String digits, int pos) {
 	return new Nine().parse(digits, pos);
     }
+    
+    @Override
+    boolean matches(String digits, int pos) {
+     
+        return AccountPatterns.EIGHT.matches(digits, pos);
+    }
 
 }

@@ -20,4 +20,9 @@ class Six extends AbstractNumberParser {
 	return new Seven().parse(digits, pos);
     }
 
+    @Override
+    boolean matches(String digits, int pos) {
+
+	return AccountPatterns.SIX.matches(digits, pos);
+    }
 }

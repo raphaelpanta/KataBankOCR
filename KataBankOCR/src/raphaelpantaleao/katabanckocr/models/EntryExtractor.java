@@ -5,6 +5,7 @@ import static raphaelpantaleao.katabanckocr.constants.Constants.MAX_SCANNER_LINE
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import javax.inject.Inject;
@@ -25,7 +26,7 @@ public class EntryExtractor {
 	List<Entry> entries = new ArrayList<Entry>();
 	if (input != null)
 	    try (Scanner scanner = new Scanner(input)) {
-		while (scanner.hasNextLine()) {	
+		while (scanner.hasNextLine()) {
 		    Entry entry = createFrom(scanner);
 		    validator.verifyEntry(entry);
 		    entries.add(entry);
@@ -36,9 +37,14 @@ public class EntryExtractor {
 
     private Entry createFrom(Scanner aScanner) throws EntryValidationException {
 	final StringBuilder textBuilder = new StringBuilder();
+	String line;
 	for (int i = 0; i < MAX_SCANNER_LINES; i++) {
-	    String line = validator.validateIfHasSufficientLinesIn(aScanner);
-	    validator.validateLengthOf(line);
+	    try {
+		line = aScanner.nextLine();
+	    } catch (NoSuchElementException e) {
+		throw new EntryValidationException(
+			"Entry has insuficient lines.", e);
+	    }
 	    textBuilder.append(line).append("\n");
 	}
 	return new Entry(textBuilder.toString());

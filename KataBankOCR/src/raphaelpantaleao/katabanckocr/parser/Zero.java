@@ -18,4 +18,10 @@ class Zero extends AbstractNumberParser {
     protected String getNumber() {
 	return AccountPatterns.ZERO.getNumber();
     }
+
+    @Override
+    boolean matches(String digits, int pos) {
+
+	return AccountPatterns.ZERO.matches(digits, pos);
+    }
 }

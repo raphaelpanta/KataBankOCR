@@ -19,4 +19,9 @@ class Nine extends AbstractNumberParser {
 	return null;
     }
 
+    @Override
+    boolean matches(String digits, int pos) {
+
+	return AccountPatterns.NINE.matches(digits, pos);
+    }
 }

@@ -19,4 +19,8 @@ class Four extends AbstractNumberParser {
 	return new Five().parse(digits, pos);
     }
 
+    @Override
+    boolean matches(String digits, int pos) {
+	return AccountPatterns.FOUR.matches(digits, pos);
+    }
 }

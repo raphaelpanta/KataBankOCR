@@ -19,4 +19,9 @@ class Seven extends AbstractNumberParser {
 	return new Eight().parse(digits, pos);
     }
 
+    @Override
+    boolean matches(String digits, int pos) {
+
+	return AccountPatterns.SEVEN.matches(digits, pos);
+    }
 }

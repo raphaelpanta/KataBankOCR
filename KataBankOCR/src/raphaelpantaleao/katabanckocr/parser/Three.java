@@ -18,5 +18,11 @@ class Three extends AbstractNumberParser {
     protected String next(String digits, int pos) {
 	return new Four().parse(digits, pos);
     }
+    
+    @Override
+    boolean matches(String digits, int pos) {
+
+	return AccountPatterns.THREE.matches(digits, pos);
+    }
 
 }
