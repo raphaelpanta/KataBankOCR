@@ -1,14 +1,11 @@
 package raphaelpantaleao.katabanckocr.patterns;
 
-import static raphaelpantaleao.katabanckocr.constants.Constants.MAX_SCANNER_LINES;
-import static raphaelpantaleao.katabanckocr.constants.Constants.MAX_SCANNER_LINE_LENGTH;
-
 public enum AccountPatterns {
 
     ZERO {
 	@Override
 	public String getPattern() {
-	    return " _ " + "| |" + "|_|" + " ";
+	    return " _ " + "| |" + "|_|" + "   ";
 	}
 
 	@Override
@@ -121,17 +118,22 @@ public enum AccountPatterns {
     public abstract String getNumber();
 
     public boolean matches(final String digits, final int pos) {
-	int i = pos * 3;
-	boolean identified = true;
-	for (int j = 0; j < MAX_SCANNER_LINES; j++) {
-	    identified &= digits.charAt(i + MAX_SCANNER_LINE_LENGTH * j) == getPattern()
-		    .charAt(j * 3)
-		    && digits.charAt(i + 1 + MAX_SCANNER_LINE_LENGTH * j) == getPattern()
-			    .charAt(j * 3 + 1)
-		    && digits.charAt(i + 2 + MAX_SCANNER_LINE_LENGTH * j) == getPattern()
-			    .charAt(j * 3 + 2);
-	}
-	return identified;
+	return compareLinesOf(digits, 0, 3, 0, 3, pos)
+		&& compareLinesOf(digits, 28, 31, 3, 6, pos)
+		&& compareLinesOf(digits, 56, 59, 6, 9, pos)
+		&& compareLinesOf(digits, 84, 87, 9, 12, pos);
+    }
+
+    private boolean compareLinesOf(final String digits, int index, int end,
+	    int compIndex, int compEnd, int digitPos) {
+	String line = digits
+		.substring(index + digitPos * 3, end + digitPos * 3);
+	String comparisonLine = this.getPattern().substring(compIndex, compEnd);
+
+	System.out.println("[" + line + "]");
+	System.out.println("[" + comparisonLine + "]");
+
+	return line.equals(comparisonLine);
     }
 
     public static boolean validatePatternOf(String digits) {
