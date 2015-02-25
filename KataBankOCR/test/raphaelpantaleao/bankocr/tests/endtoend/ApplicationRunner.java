@@ -19,7 +19,7 @@ import static raphaelpantaleao.katabanckocr.constants.Constants.APP_TITLE;
 import java.awt.HeadlessException;
 import java.lang.reflect.InvocationTargetException;
 
-import raphaelpantaleao.katabanckocr.app.Main;
+import raphaelpantaleao.katabanckocr.module.Main;
 
 public class ApplicationRunner {
 

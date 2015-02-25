@@ -1,4 +1,4 @@
-package raphaelpantaleao.katabanckocr.app;
+package raphaelpantaleao.katabanckocr.module;
 
 import static com.google.inject.name.Names.named;
 import static javax.swing.SwingUtilities.invokeAndWait;

@@ -1,4 +1,5 @@
-package raphaelpantaleao.katabanckocr.app;
+package raphaelpantaleao.katabankocr.launcher;
+
 
 import static com.google.inject.Guice.createInjector;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
@@ -8,11 +9,12 @@ import java.lang.reflect.InvocationTargetException;
 
 import javax.swing.SwingUtilities;
 
+import raphaelpantaleao.katabanckocr.module.BankOCRModule;
 import raphaelpantaleao.katabankocr.ui.UIFrame;
 
 import com.google.inject.Injector;
 
-public class Main {
+public class ApplicationLauncher {
     static final Injector injector = createInjector(new BankOCRModule());
 
     public static void main(String[] args) throws HeadlessException,

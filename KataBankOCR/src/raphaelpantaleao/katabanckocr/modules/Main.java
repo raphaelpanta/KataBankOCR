@@ -5,7 +5,7 @@ import static javax.swing.SwingUtilities.invokeAndWait;
 import java.awt.HeadlessException;
 import java.lang.reflect.InvocationTargetException;
 
-import raphaelpantaleao.katabanckocr.app.BankOCRModule;
+import raphaelpantaleao.katabanckocr.module.BankOCRModule;
 import raphaelpantaleao.katabankocr.ui.UIFrame;
 
 import com.google.inject.Guice;
