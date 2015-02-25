@@ -88,6 +88,9 @@ public class UIFrame extends JFrame {
 	scrollableOutputPane.setPreferredSize(new Dimension(700, 200));
 	panel4.add(scrollableOutputPane);
 	add(panel4);
+	
+	 setDefaultCloseOperation(EXIT_ON_CLOSE);
+	 pack();
     }
 
     private void configFrame(final String name, final String title) {

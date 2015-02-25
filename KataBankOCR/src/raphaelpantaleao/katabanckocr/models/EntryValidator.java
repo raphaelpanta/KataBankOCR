@@ -10,7 +10,6 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import raphaelpantaleao.katabanckocr.exceptions.EntryValidationException;
-import raphaelpantaleao.katabanckocr.patterns.AccountPatterns;
 
 public class EntryValidator {
     private List<String> errors = new ArrayList<>();

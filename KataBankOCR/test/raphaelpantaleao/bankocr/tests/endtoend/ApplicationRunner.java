@@ -1,5 +1,6 @@
 package raphaelpantaleao.bankocr.tests.endtoend;
 
+import static raphaelpantaleao.katabanckocr.constants.Constants.APP_TITLE;
 import static raphaelpantaleao.katabanckocr.constants.Constants.INPUT_LABEL_NAME;
 import static raphaelpantaleao.katabanckocr.constants.Constants.INPUT_LABEL_TEXT;
 import static raphaelpantaleao.katabanckocr.constants.Constants.INPUT_TEXT_AREA_NAME;
@@ -14,7 +15,6 @@ import static raphaelpantaleao.katabanckocr.constants.Constants.SCANNER_BUTTON_N
 import static raphaelpantaleao.katabanckocr.constants.Constants.SCANNER_BUTTON_TEXT;
 import static raphaelpantaleao.katabanckocr.constants.Constants.SELECT_FILE_BUTTON_NAME;
 import static raphaelpantaleao.katabanckocr.constants.Constants.SELECT_FILE_BUTTON_TEXT;
-import static raphaelpantaleao.katabanckocr.constants.Constants.APP_TITLE;
 
 import java.awt.HeadlessException;
 import java.lang.reflect.InvocationTargetException;
@@ -80,8 +80,8 @@ public class ApplicationRunner {
 	}
 
 	public void dispose() {
-		driver.deleteTmpFiles();
-		driver.dispose();
+	//driver.dispose();
+	driver.deleteTmpFiles();
 	}
 
 	public void showsAAlertThatFileHasMalformedText() {
