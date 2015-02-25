@@ -36,7 +36,7 @@ public class DocumentProcessor {
 	public String entries() {
 		return accountEntries
 				.stream()
-				.map((entry) -> parser.parse(entry.entry.replaceAll("\\n", "")))
+				.map((entry) -> parser.parse(entry.entry))
 				.collect(joining("\n"))
 				+ "\n";
 	}

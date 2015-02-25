@@ -26,11 +26,17 @@ public class EntryExtractor {
 	List<Entry> entries = new ArrayList<Entry>();
 	if (input != null)
 	    try (Scanner scanner = new Scanner(input)) {
+		EntryValidator.ValidationResults validationResults = null;
 		while (scanner.hasNextLine()) {
 		    Entry entry = createFrom(scanner);
-		    validator.verifyEntry(entry);
+		    if (validationResults == null)
+			validationResults = validator.verifyEntry(entry);
+		    else
+			validationResults.addErrors(validator
+				.verifyEntry(entry).getErrorList());
 		    entries.add(entry);
 		}
+		validationResults.throwIfhasErrors();
 	    }
 	return entries;
     }

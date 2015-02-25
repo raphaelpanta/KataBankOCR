@@ -1,5 +1,6 @@
 package raphaelpantaleao.katabanckocr.models;
 
+import static java.util.stream.Collectors.joining;
 import static raphaelpantaleao.katabanckocr.constants.Constants.MAX_SCANNER_LINE_LENGTH;
 import static raphaelpantaleao.katabanckocr.patterns.AccountPatterns.validatePatternOf;
 
@@ -7,14 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 import raphaelpantaleao.katabanckocr.exceptions.EntryValidationException;
+import raphaelpantaleao.katabanckocr.patterns.AccountPatterns;
 
 public class EntryValidator {
     private List<String> errors = new ArrayList<>();
 
-    void verifyEntry(Entry anEntry) throws EntryValidationException {
+    ValidationResults verifyEntry(Entry anEntry)
+	    throws EntryValidationException {
 
 	String[] entryLines = anEntry.entry.split("\\n");
 
@@ -33,10 +35,10 @@ public class EntryValidator {
 	    allLinesHasExact27chars &= line.length() == MAX_SCANNER_LINE_LENGTH;
 	}
 
-//	boolean hasNotEndWithWhitespace = !entryLines[3]
-//		.equals("                           \n");
-//	addErrorMessageIf(hasNotEndWithWhitespace,
-//		"Last Line could only have whitespaces.");
+	boolean hasNotEndWithWhitespace = !entryLines[3]
+		.equals("                           ");
+	addErrorMessageIf(hasNotEndWithWhitespace,
+		"Last Line could only have whitespaces.");
 
 	boolean notHaveOnlyPipesUnderscoresOrWhitespaces = !anEntry.entry
 		.matches("[\\s\\|\\_\\\\n]+");
@@ -44,15 +46,10 @@ public class EntryValidator {
 	addErrorMessageIf(notHaveOnlyPipesUnderscoresOrWhitespaces,
 		"First Three lines could only have pipes, underscores and whitespaces.");
 
-//	if (allLinesHasExact27chars)
-//	    addErrorMessageIf(!validatePatternOf(anEntry.entry),
-//		    "Account did not match any number pattern. " + anEntry.entry);
-
-	if (!errors.isEmpty()) {
-	    throw new EntryValidationException(errors.stream().collect(
-		    Collectors.joining("\n")));
-
-	}
+	addErrorMessageIf(allLinesHasExact27chars
+		&& !validatePatternOf(anEntry.entry),
+		"Account did not match any number pattern.");
+	return new ValidationResults(errors);
     }
 
     private void addErrorMessageIf(boolean conditionOccourred, String message)
@@ -71,5 +68,29 @@ public class EntryValidator {
 		    e);
 	}
 	return line;
+    }
+
+    static final class ValidationResults {
+	private final List<String> errors;
+
+	public ValidationResults(List<String> errors) {
+	    this.errors = errors;
+	}
+
+	public void throwIfhasErrors() throws EntryValidationException {
+	    if (!errors.isEmpty()) {
+		throw new EntryValidationException(errors.stream().collect(
+			joining("\n")));
+
+	    }
+	}
+
+	public List<String> getErrorList() {
+	    return this.errors;
+	}
+
+	public void addErrors(final List<String> moreErrors) {
+	    errors.addAll(moreErrors);
+	}
     }
 }
