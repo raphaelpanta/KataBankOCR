@@ -5,7 +5,7 @@ public class TestConstants {
 	    + "  | _| _||_||_ |_   ||_||_|\n"
 	    + "  ||_  _|  | _||_|  ||_| _|\n"
 	    + "                           \n";
-    public static final String SCANNED_TEXT_WRONG = "   _  _     _  _  _  _  _  \n"
+    public static final String SCANNED_TEXT_WITH_ERRORS = "   _  _     _  _  _  _  _  \n"
 	    + " | _| _||_||_ |_   ||_||_| \n"
 	    + " ||_  _|  | _||_|  ||_| _| \n"
 	    + "                           \n";

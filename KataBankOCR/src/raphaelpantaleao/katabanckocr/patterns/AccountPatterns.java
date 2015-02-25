@@ -130,9 +130,6 @@ public enum AccountPatterns {
 		.substring(index + digitPos * 3, end + digitPos * 3);
 	String comparisonLine = this.getPattern().substring(compIndex, compEnd);
 
-	System.out.println("[" + line + "]");
-	System.out.println("[" + comparisonLine + "]");
-
 	return line.equals(comparisonLine);
     }
 
