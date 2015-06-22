@@ -8,22 +8,25 @@ import static org.hamcrest.Matchers.is;
 import static raphaelpantaleao.bankocr.tests.StreamCreator.createStreamOf;
 import static raphaelpantaleao.bankocr.tests.TestConstants.ACCOUNTS_EXPECTED;
 import static raphaelpantaleao.bankocr.tests.TestConstants.NUMBER_IN_DIGITS;
-import static raphaelpantaleao.katabanckocr.parser.NumberParserFactory.createParser;
 
 import java.io.InputStream;
 
 import org.junit.Test;
 
-import raphaelpantaleao.katabanckocr.exceptions.DocumentProcessorException;
-import raphaelpantaleao.katabanckocr.models.DocumentProcessor;
-import raphaelpantaleao.katabanckocr.models.EntryExtractor;
-import raphaelpantaleao.katabanckocr.models.EntryValidator;
+import com.github.raphaelpanta.katabankocr.config.ScannerProps;
+import com.github.raphaelpanta.katabankocr.config.ScannerProps.DefaultScannerProps;
+import com.github.raphaelpanta.katabankocr.exceptions.DocumentProcessorException;
+import com.github.raphaelpanta.katabankocr.models.DocumentProcessor;
+import com.github.raphaelpanta.katabankocr.models.EntryExtractor;
+import com.github.raphaelpanta.katabankocr.models.EntryValidator;
+import com.github.raphaelpanta.katabankocr.parser.EnumNumberParser;
 
 public class DocumentProcessorTest {
 
-    private final DocumentProcessor docProcessor = new DocumentProcessor(
-	    new EntryExtractor(new EntryValidator()),
- createParser());
+    private static final DefaultScannerProps SCANNER_PROPS = new ScannerProps.DefaultScannerProps();
+	private final DocumentProcessor docProcessor = new DocumentProcessor(
+	    new EntryExtractor(new EntryValidator(SCANNER_PROPS), SCANNER_PROPS),
+new EnumNumberParser());
 
     @Test
     public void wellformedDigitsConvertsSuccessfully()

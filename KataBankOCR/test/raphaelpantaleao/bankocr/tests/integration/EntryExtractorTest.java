@@ -4,23 +4,24 @@ import static org.hamcrest.Matchers.containsString;
 import static raphaelpantaleao.bankocr.tests.StreamCreator.createAStreamWith;
 import static raphaelpantaleao.bankocr.tests.TestConstants.SCANNED_TEXT_WITH_ERRORS;
 import static raphaelpantaleao.bankocr.tests.TestConstants.ZEROS;
-import static raphaelpantaleao.katabanckocr.constants.Constants.MAX_SCANNER_LINE_LENGTH;
 
 import org.hamcrest.Matcher;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import raphaelpantaleao.katabanckocr.exceptions.EntryValidationException;
-import raphaelpantaleao.katabanckocr.models.EntryExtractor;
-import raphaelpantaleao.katabanckocr.models.EntryValidator;
+import com.github.raphaelpanta.katabankocr.config.ScannerProps.DefaultScannerProps;
+import com.github.raphaelpanta.katabankocr.exceptions.EntryValidationException;
+import com.github.raphaelpanta.katabankocr.models.EntryExtractor;
+import com.github.raphaelpanta.katabankocr.models.EntryValidator;
 
 public class EntryExtractorTest {
 
-    @Rule
+    private static final DefaultScannerProps SCANNER_PROPS = new DefaultScannerProps();
+	@Rule
     public ExpectedException expectedException = ExpectedException.none();
     private final EntryExtractor extractor = new EntryExtractor(
-	    new EntryValidator());
+	    new EntryValidator(SCANNER_PROPS), SCANNER_PROPS);
 
     @Test
     public void expectsEntryHasOnlyWhitespaceInLastLine()
@@ -77,14 +78,14 @@ public class EntryExtractorTest {
 		+ "                               \n";
 	expectException(onlyWhitespace,
 		containsString("Entry has lines with length greater than "
-			+ MAX_SCANNER_LINE_LENGTH + "."));
+			+ 27 + "."));
     }
 
     private void assertExceptionWhenHasLinesWithCharactersLessThan27()
 	    throws EntryValidationException {
 	expectException("     \n     \n     \n     \n",
 		containsString("Entry has lines with length less than "
-			+ MAX_SCANNER_LINE_LENGTH + "."));
+			+ 27 + "."));
     }
 
     private void expectException(Matcher<String> message) {
